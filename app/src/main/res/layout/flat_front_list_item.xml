@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#F3F2F2"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+
+        <RelativeLayout
+            android:layout_margin="5dp"
+            android:background="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            tools:ignore="UselessLeaf,UselessParent">
+
+            <LinearLayout
+                android:id="@+id/liner_layout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                tools:ignore="UselessLeaf">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/dada"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp">
+
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+
+                <TextView
+                    android:id="@+id/Flat_houseUserName"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:textColor="#000"
+                    android:text="Sourav dada"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+            </LinearLayout>
+            <View
+                android:id="@+id/view"
+                android:layout_below="@id/liner_layout"
+                android:layout_width="match_parent"
+                android:layout_height=".7dp">
+
+            </View>
+
+            <LinearLayout
+                android:id="@+id/liner_layout2"
+                android:layout_below="@id/view"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginBottom="5dp"
+                android:weightSum="2"
+                android:orientation="vertical"
+                android:layout_below="@id/liner_layout2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:weightSum="5"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp">
+
+                    <TextView
+                        android:id="@+id/Flat_houseUserLocation"
+                        android:gravity="center"
+                        android:textColor="#000"
+                        android:text="Sylhet,moulvibazar,dhaka,"
+                        android:background="@drawable/edtext_background"
+                        android:layout_width="0dp"
+                        android:textSize="12sp"
+                        android:layout_weight="3.5"
+                        android:layout_marginStart="5dp"
+                        android:layout_height="match_parent"
+                        tools:ignore="HardcodedText,NestedWeights">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/showAllData"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="1.5"
+                        android:background="@drawable/edtext_background"
+                        android:gravity="center"
+                        android:text="More Details>>"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText,Suspicious0dp" />
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:weightSum="3"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp">
+
+                    <TextView
+                        android:id="@+id/Flat_houseUserRoom"
+                        android:background="@drawable/edtext_background"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="Room"
+                        android:textColor="#000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:layout_marginEnd="5dp"
+                        android:layout_height="match_parent"
+                        tools:ignore="HardcodedText,NestedWeights">
+
+                    </TextView>
+                    <TextView
+                        android:id="@+id/Flat_houseUserPrice"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="Price"
+                        android:textColor="#000"
+                        android:textSize="12sp"
+
+                        android:gravity="center"
+                        android:background="@drawable/edtext_background"
+                        android:layout_marginEnd="5dp"
+                        android:layout_height="match_parent"
+                        tools:ignore="HardcodedText,NestedWeights">
+
+                    </TextView>
+                    <TextView
+                        android:id="@+id/Flat_houseUserFloor"
+                        android:background="@drawable/edtext_background"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="12sp"
+                        android:textColor="#000"
+                        android:text="floor"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        tools:ignore="HardcodedText,NestedWeights">
+
+                    </TextView>
+
+
+
+
+                </LinearLayout>
+
+
+
+
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+
+
+
+</RelativeLayout>

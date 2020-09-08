@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+
+
+    <LinearLayout
+        android:id="@+id/liner1"
+        android:orientation="horizontal"
+
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        tools:ignore="UselessLeaf">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:src="@drawable/dada"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+        <TextView
+            android:layout_marginStart="15dp"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/flat_userName12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="ExtraText,ScrollViewSize,UseCompoundDrawables,UselessLeaf">
+
+
+        //1
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            tools:ignore="ContentDescription">
+
+
+        </ImageView>
+
+
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/main_btn_back"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:id="@+id/phn_number_flat"
+                android:padding="5dp"
+                android:textColor="#000"
+                android:layout_gravity="center_vertical"
+                android:textSize="17sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="RelativeOverlap">
+
+
+            </TextView>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_alignParentEnd="true"
+                android:id="@+id/flat_call_user"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_contact"
+                android:layout_width="30dp"
+                android:layout_height="30dp">
+
+            </de.hdodenhof.circleimageview.CircleImageView>
+        </RelativeLayout>
+
+        <TextView
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:id="@+id/flat_userAddress12"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </TextView>
+        //2
+        <TextView
+            android:id="@+id/flat_userqnty12"
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </TextView>
+        //3
+        <TextView
+            android:id="@+id/flat_userPrice12"
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </TextView>
+        //4
+        <TextView
+            android:id="@+id/flat_per_Unit_price12"
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </TextView>
+        //5
+        <TextView
+            android:id="@+id/flat_userMontlyPayDate12"
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </TextView>
+        //6
+        <TextView
+            android:id="@+id/flat_userLevDate12"
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </TextView>
+        //7
+        <TextView
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:id="@+id/flat_userAdnFee12"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </TextView>
+        <TextView
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:id="@+id/flat_activity"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </TextView>
+        <TextView
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:id="@+id/image"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </TextView>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+</RelativeLayout>

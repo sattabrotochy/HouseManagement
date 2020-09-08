@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_user_edit_general_profile">
+
+
+
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--    android:id="@+id/profileShow"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent">-->
+
+
+
+
+<!--</androidx.recyclerview.widget.RecyclerView>-->
+
+
+
+    <LinearLayout
+        android:id="@+id/liner_layout"
+        android:background="#727EC1"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        tools:ignore="Orientation,UselessLeaf">
+
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/liner_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        tools:ignore="Orientation,UselessLeaf">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="UselessParent">
+
+            <ImageButton
+                android:id="@+id/change_image"
+                android:layout_marginBottom="30dp"
+                android:src="@drawable/ic_draw"
+                android:background="@drawable/profile_btn_back"
+                android:layout_marginEnd="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                tools:ignore="ContentDescription">
+
+            </ImageButton>
+
+            <ImageButton
+                android:src="@drawable/ic_search"
+                android:background="@drawable/profile_btn_back"
+                android:layout_marginStart="20dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="20dp"
+                android:id="@+id/search_btn"
+                android:layout_marginBottom="30dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                tools:ignore="ContentDescription">
+
+            </ImageButton>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:background="@drawable/profile_back"
+        android:orientation="vertical"
+        android:layout_below="@id/liner_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessLeaf">
+
+    </LinearLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_marginTop="90dp"
+
+        android:id="@+id/ProfileImage"
+        android:layout_centerHorizontal="true"
+        android:layout_width="150dp"
+        android:layout_height="150dp">
+
+    </de.hdodenhof.circleimageview.CircleImageView>
+
+    <TextView
+        android:id="@+id/prof_Name"
+        android:padding="4dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textColor="#000"
+        android:textSize="22sp"
+        android:layout_below="@id/liner_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="HardcodedText">
+
+    </TextView>
+    <TextView
+        android:id="@+id/prof_address"
+        android:padding="4dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:fontFamily="@font/antic_slab"
+        android:textSize="15sp"
+        android:layout_below="@id/prof_Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="HardcodedText">
+
+    </TextView>
+
+    <LinearLayout
+        android:id="@+id/pr_liner"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/prof_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        tools:ignore="UselessLeaf">
+
+        <Button
+
+            android:background="@drawable/ic_contact"
+            android:padding="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            tools:ignore="ButtonStyle">
+
+        </Button>
+        <Button
+
+            android:background="@drawable/ic_mail"
+            android:padding="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            tools:ignore="ButtonStyle">
+
+        </Button>
+
+        <Button
+            android:background="@drawable/ic_at"
+            android:padding="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            tools:ignore="ButtonStyle">
+
+        </Button>
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

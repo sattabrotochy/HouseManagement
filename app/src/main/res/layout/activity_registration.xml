@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Authentication.RegistrationActivity">
+
+
+
+    <EditText
+        android:visibility="gone"
+        android:id="@+id/IdUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="Autofill,LabelFor,TextFields">
+
+    </EditText>
+
+
+    <LinearLayout
+        android:id="@+id/liner_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        tools:ignore="UselessLeaf">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="35dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_house"
+            android:layout_marginLeft="10dp"
+            tools:ignore="RtlHardcoded">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+        <TextView
+            android:text="নিবন্ধন ফরর্ম"
+            android:textColor="#000"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            tools:ignore="HardcodedText,UnusedAttribute">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <View
+        android:background="#3F51B5"
+        android:layout_below="@id/liner_layout"
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp">
+
+    </View>
+
+    <ScrollView
+        android:layout_below="@id/liner_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="ScrollViewSize">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="UselessLeaf,UselessParent">
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/userProfileImage"
+                    android:layout_width="150dp"
+                    android:padding="10dp"
+                    android:background="@drawable/edtext_background"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="150dp">
+
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+                <EditText
+                    android:inputType="text"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:textColor="#000"
+                    android:id="@+id/userName"
+                    android:background="@drawable/edtext_background"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:hint="   নাম"
+                    android:layout_below="@id/userProfileImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    tools:ignore="Autofill,HardcodedText,LabelFor,TextFields">
+
+                </EditText>
+                <EditText
+                    android:inputType="textEmailAddress"
+                    android:textSize="18sp"
+                    android:textColor="#000"
+                    android:id="@+id/userEmail"
+                    android:padding="5dp"
+                    android:background="@drawable/edtext_background"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:hint="   ই-মেইল"
+                    android:layout_below="@id/userName"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    tools:ignore="Autofill,HardcodedText,LabelFor,TextFields">
+
+                </EditText>
+                <EditText
+                    android:inputType="textPassword"
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    android:padding="5dp"
+                    android:id="@+id/userPassword"
+                    android:background="@drawable/edtext_background"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:hint="   পাসওয়ার্ড"
+                    android:layout_below="@id/userEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    tools:ignore="Autofill,HardcodedText,LabelFor,TextFields">
+
+                </EditText>
+                <EditText
+                    android:inputType="text"
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    android:id="@+id/userAddress"
+                    android:background="@drawable/edtext_background"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:padding="5dp"
+                    android:hint="   বর্তমান ঠিকানা"
+                    android:layout_below="@id/userPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    tools:ignore="Autofill,HardcodedText,LabelFor,TextFields">
+
+                </EditText>
+                <EditText
+                    android:inputType="number"
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    android:id="@+id/userPhn_number"
+                    android:background="@drawable/edtext_background"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:padding="5dp"
+                    android:hint=" ফোন নাম্বার"
+                    android:layout_below="@id/userAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    tools:ignore="Autofill,HardcodedText,LabelFor,TextFields">
+
+                </EditText>
+                <EditText
+                    android:inputType="text"
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    android:id="@+id/userProfession"
+                    android:background="@drawable/edtext_background"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:hint="   পেশা"
+                    android:padding="5dp"
+                    android:layout_below="@id/userPhn_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    tools:ignore="Autofill,HardcodedText,LabelFor,TextFields">
+
+                </EditText>
+
+
+                <Button
+                    android:id="@+id/userRegistrationBtn"
+                    android:textSize="20sp"
+                    android:text="Done"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/acme"
+                    android:textColor="#fff"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@id/userProfession"
+                    android:background="@drawable/login_btn_back"
+                    android:layout_width="388dp"
+                    android:layout_height="50dp"
+                    tools:ignore="HardcodedText,UnusedAttribute">
+
+                </Button>
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:layout_below="@+id/userRegistrationBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    tools:ignore="UselessLeaf">
+
+                    <TextView
+                        android:textColor="#000"
+                        android:textSize="13sp"
+                        android:text="ইতিমধ্যে আপনার একটি অ্যাকাউন্ট আছে?"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:ignore="HardcodedText">
+
+                    </TextView>
+                    <TextView
+                        android:id="@+id/signInActivity"
+                        android:textColor="#3F51B5"
+                        android:textSize="15sp"
+                        android:text="@string/signIn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:ignore="HardcodedText">
+
+                    </TextView>
+
+                </LinearLayout>
+
+
+
+
+
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+
+
+</RelativeLayout>

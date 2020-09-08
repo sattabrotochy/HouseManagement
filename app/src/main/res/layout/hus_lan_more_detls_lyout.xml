@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:ignore="ScrollViewSize,UselessLeaf,UselessParent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                tools:ignore="UselessParent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/House_userImage"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/dada">
+
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@id/House_userImage"
+                    android:padding="5dp"
+                    android:text="User Name"
+                    android:textColor="#000"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+
+            </RelativeLayout>
+
+
+            <ImageView
+                android:id="@+id/house_image"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                tools:ignore="ContentDescription">
+
+            </ImageView>
+
+
+
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/main_btn_back"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:id="@+id/phn_number"
+                    android:padding="5dp"
+                    android:textColor="#000"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="17sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:ignore="RelativeOverlap">
+
+
+                </TextView>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/husLand_User_call"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_contact"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp">
+
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/main_btn_back"
+                android:padding="5dp"
+                tools:ignore="RtlHardcoded">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/houlan_type"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/main_btn_back"
+                android:padding="5dp"
+                tools:ignore="RtlHardcoded">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/houselan_floor"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/main_btn_back"
+                android:padding="5dp"
+                tools:ignore="RtlHardcoded">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/houlan_qunty"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/main_btn_back"
+                android:padding="5dp"
+                tools:ignore="RtlHardcoded">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/houLnd_Price"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/main_btn_back"
+                android:padding="5dp"
+                tools:ignore="RtlHardcoded">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/houlan_document"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/main_btn_back"
+                android:padding="5dp"
+                tools:ignore="RtlHardcoded">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/houLan_taxClr"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/main_btn_back"
+                android:padding="5dp"
+                tools:ignore="RtlHardcoded">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/houlan_parking"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/main_btn_back"
+                android:padding="5dp"
+                tools:ignore="RtlHardcoded">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/active_inactive"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/main_btn_back"
+                android:padding="5dp"
+                tools:ignore="RtlHardcoded">
+
+            </TextView>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

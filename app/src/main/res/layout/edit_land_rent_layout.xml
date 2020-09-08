@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <LinearLayout
+        android:id="@+id/liner1"
+        android:orientation="horizontal"
+
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        tools:ignore="UselessLeaf">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:src="@drawable/dada"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+        <TextView
+            android:layout_marginStart="15dp"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/Land_userName1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="ExtraText,ScrollViewSize,UseCompoundDrawables,UselessLeaf">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            tools:ignore="ContentDescription">
+
+
+        </ImageView>
+        //1
+        <EditText
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:id="@+id/land_userAddressEdit"
+            android:padding="5dp"
+            android:textColor="#000"
+            tools:ignore="Autofill,LabelFor,TextFields"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </EditText>
+        //2
+        <EditText
+            android:id="@+id/land_userqntyEdit"
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:textColor="#000"
+            tools:ignore="Autofill,LabelFor,TextFields"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </EditText>
+        //3
+        <EditText
+            android:id="@+id/land_userPriceEdit"
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textSize="17sp"
+            tools:ignore="Autofill,LabelFor,TextFields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </EditText>
+        //4
+        <EditText
+            android:id="@+id/land_user_per_Unit_priceEdit"
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textSize="17sp"
+            tools:ignore="Autofill,LabelFor,TextFields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </EditText>
+        //5
+        <EditText
+            android:id="@+id/land_userMontlyPayDateEdit"
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="Autofill,LabelFor,TextFields">
+
+
+        </EditText>
+        //6
+        <EditText
+            android:id="@+id/land_userLevDateEdit"
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textSize="17sp"
+            tools:ignore="Autofill,LabelFor,TextFields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </EditText>
+        //7
+        <EditText
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:id="@+id/land_userAdnFeeEdit"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:textSize="17sp"
+            tools:ignore="Autofill,LabelFor,TextFields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </EditText>
+
+        <Button
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:background="@drawable/profile_btn_back"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:text="Update"
+            android:id="@+id/update_Btn"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            tools:ignore="HardcodedText">
+
+
+
+        </Button>
+
+
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Authentication.SIngInActivity"
+        android:padding="5dp"
+        android:background="#fff"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:gravity="center"
+        tools:ignore="UselessLeaf">
+
+
+
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_house"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            tools:ignore="ContentDescription">
+
+        </ImageView>
+
+    <TextView
+        android:id="@+id/singINText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="Sign In"
+        android:textColor="#6370BA"
+        android:textSize="30dp"
+        tools:ignore="HardcodedText,SpUsage,UnusedAttribute">
+
+    </TextView>
+
+        <EditText
+
+            android:id="@+id/UserEmail"
+            android:background="@drawable/edtext_background"
+            android:layout_below="@id/singINText"
+            android:textSize="18sp"
+
+            android:text="user3@gmail.com"
+            android:inputType="textEmailAddress"
+            android:padding="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            tools:ignore="Autofill,HardcodedText,TextFields">
+
+        </EditText>
+        <EditText
+
+            android:id="@+id/UserPass"
+            android:inputType="textPassword"
+            android:background="@drawable/edtext_background"
+            android:layout_below="@id/UserEmail"
+            android:textSize="18sp"
+            android:text="user123"
+            android:padding="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            tools:ignore="Autofill,HardcodedText,TextFields">
+
+        </EditText>
+
+    <Button
+        android:id="@+id/singInBtn"
+        android:layout_width="388dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/UserPass"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:textAllCaps="false"
+        android:background="@drawable/login_btn_back"
+        android:includeFontPadding="true"
+        android:padding="5dp"
+        android:text="sign in"
+
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,UnusedAttribute">
+
+    </Button>
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/singInBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:fontFamily="sans-serif-medium"
+            android:textColor="#000"
+            android:textSize="13sp"
+            android:text="আপনার একটি অ্যাকাউন্ট প্রয়োজন ?  "
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="HardcodedText,UnusedAttribute">
+
+        </TextView>
+
+        <TextView
+           android:id="@+id/registration"
+            android:textColor="#3F51B5"
+            android:textSize="15sp"
+            android:text="@string/registartion"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="HardcodedText,UnusedAttribute">
+
+        </TextView>
+
+
+    </LinearLayout>
+
+
+
+
+    </RelativeLayout>

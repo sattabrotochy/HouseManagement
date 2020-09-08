@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "93045870040",
+    "firebase_url": "https://house-management-d5076.firebaseio.com",
+    "project_id": "house-management-d5076",
+    "storage_bucket": "house-management-d5076.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93045870040:android:7b25caf1457a57c2a076ad",
+        "android_client_info": {
+          "package_name": "com.Shuvo.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "93045870040-vqia36r1umiit5h4mhenod7eec3v9ai3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUT7KbcWWIs184_LxPsthzL7aX9EI8bOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "93045870040-vqia36r1umiit5h4mhenod7eec3v9ai3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

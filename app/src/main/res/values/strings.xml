@@ -1,0 +1,108 @@
+<resources>
+
+    <string name="app_name">HouseManagement</string>
+    <string name="registartion"> <u>নিবন্ধন করুন</u> </string>
+    <string name="signIn"> <u>সাইন ইন করুন</u> </string>
+
+
+    <string-array name="post_Item">
+        <item>"All Item"</item>
+        <item>House Rent</item>
+        <item>Land Rent</item>
+        <item>Flat Sale</item>
+        <item>House with Land Sale</item>
+    </string-array>
+
+
+    <string-array name="house_type">
+        <item>" "</item>
+        <item>"ভবন বাসা"</item>
+        <item>"টিন সেট বাসা"</item>
+    </string-array>
+
+
+    <string-array name="Rent_Type">
+        <item> </item>
+        <item>মেস </item>
+        <item> পরিবার </item>
+        <item> মেস অথবা  পরিবার</item>
+
+
+    </string-array>
+
+    <string-array name="monthly_payment">
+        <item> </item>
+        <item>১ তারিখের মধ্যে</item>
+        <item>২ তারিখের মধ্যে</item>
+        <item>৩ তারিখের মধ্যে</item>
+        <item>৪ তারিখের মধ্যে</item>
+        <item>৫ তারিখের মধ্যে</item>
+        <item>৬ তারিখের মধ্যে</item>
+        <item>৭ তারিখের মধ্যে</item>
+        <item>৮ তারিখের মধ্যে</item>
+        <item>৯ তারিখের মধ্যে</item>
+        <item>১০ তারিখের মধ্যে</item>
+        <item>আপনার ইচ্ছে মত</item>
+    </string-array>
+    <string-array name="monthly_payment_land">
+        <item> </item>
+        <item>১ তারিখের মধ্যে</item>
+        <item>২ তারিখের মধ্যে</item>
+        <item>৩ তারিখের মধ্যে</item>
+        <item>৪ তারিখের মধ্যে</item>
+        <item>৫ তারিখের মধ্যে</item>
+        <item>৬ তারিখের মধ্যে</item>
+        <item>৭ তারিখের মধ্যে</item>
+        <item>৮ তারিখের মধ্যে</item>
+        <item>৯ তারিখের মধ্যে</item>
+        <item>১০ তারিখের মধ্যে</item>
+        <item>আপনার ইচ্ছে মত</item>
+    </string-array>
+
+    <string-array name="minimumTime_Spend">
+        <item> </item>
+        <item>১ মাস</item>
+        <item>২ মাস</item>
+        <item>৩ মাস</item>
+        <item>৪ মাস</item>
+        <item>৫ মাস</item>
+    </string-array>
+    <string-array name="minimumTime_Spend_land">
+        <item> </item>
+        <item>১ মাস</item>
+        <item>২ মাস</item>
+        <item>৩ মাস</item>
+        <item>৪ মাস</item>
+        <item>৫ মাস</item>
+    </string-array>
+
+    <string-array name="Gas_System">
+        <item> </item>
+        <item>লাইনের গ্যাস</item>
+        <item>সিলিন্ডারের গ্যাস</item>
+    </string-array>
+
+
+    <string-array name="minimum_advance_fee">
+        <item> </item>
+        <item>১ মাস</item>
+        <item>২ মাস</item>
+        <item>৩ মাস</item>
+        <item>৪ মাস</item>
+        <item>৫ মাস</item>
+    </string-array>
+
+
+    <string-array name="tax_clr_input">
+
+        <item> </item>
+        <item>১ বছর</item>
+        <item>২ বছর </item>
+        <item>৩ বছর</item>
+        <item>৪ বছর </item>
+        <item>৫ বছর</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

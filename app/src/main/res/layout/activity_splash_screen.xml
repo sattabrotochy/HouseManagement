@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".SplashScreenActivity">
+
+
+
+    <ImageView
+        android:id="@+id/image"
+        android:src="@drawable/house_splash"
+        android:layout_width="wrap_content"
+        android:layout_height="450dp">
+
+    </ImageView>
+
+    <TextView
+
+        android:id="@+id/text1"
+        android:textColor="#2B314E"
+        android:fontFamily="@font/acme"
+        android:layout_centerInParent="true"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/image"
+        android:text="House rent and sale "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="HardcodedText,UnusedAttribute">
+
+    </TextView>
+    <TextView
+
+        android:id="@+id/text2"
+        android:textColor="#2B314E"
+        android:fontFamily="@font/acme"
+        android:layout_centerInParent="true"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/text1"
+        android:text="sell and buy 🤑🤑 "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="HardcodedText,UnusedAttribute">
+
+    </TextView>
+
+
+</RelativeLayout>

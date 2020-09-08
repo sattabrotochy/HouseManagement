@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PostFragment.HouseWithLandFragment">
+
+
+
+
+
+    <LinearLayout
+        android:id="@+id/liner12"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        tools:ignore="UselessParent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="UselessLeaf,UselessParent">
+
+
+            <ImageView
+
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_house"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                tools:ignore="ContentDescription">
+
+            </ImageView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+    <ScrollView
+        android:layout_below="@id/liner12"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="ScrollViewSize,UselessLeaf"
+            android:orientation="vertical">
+
+
+
+            <LinearLayout
+                android:id="@+id/liner2"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="vertical"
+                android:weightSum="3"
+                tools:ignore="UselessParent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:text="আপনার জমির ছবি বা ভিডিও দেন"
+                    android:textAlignment="center"
+                    android:textColor="#000"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText,InefficientWeight,RtlCompat">
+
+                </TextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/profile_btn_back"
+                            android:text=" ছবি নির্বাচিত করুন "
+                            android:textColor="#fff"
+                            android:textSize="15sp"
+                            tools:ignore="HardcodedText">
+
+                        </Button>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:layout_gravity="end"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/profile_btn_back"
+                            android:text=" ভিডিও নির্বাচিত করুন "
+                            android:textColor="#fff"
+                            android:textSize="15sp"
+                            tools:ignore="HardcodedText">
+
+                        </Button>
+
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#000000">
+
+            </View>
+
+
+            <ImageView
+
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                tools:ignore="ContentDescription">
+
+            </ImageView>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.0dp"
+                android:background="#4A4A4A">
+            </View>
+
+
+            <LinearLayout
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:gravity="center_vertical"
+                    android:textColor="#000"
+                    android:layout_marginStart="7dp"
+                    android:layout_weight="1"
+                    android:text=" বাসার ঠিকানা :"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+
+
+                <EditText
+                    android:id="@+id/HLnd_address"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="7dp"
+                    android:background="@drawable/edtext_background"
+                    android:textColor="#000"
+                    tools:ignore="Autofill,HardcodedText,LabelFor,TextFields">
+
+                </EditText>
+            </LinearLayout>
+            <LinearLayout
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="7dp"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:text=" আপনার বাড়ির/বাসার ধরণ নির্বাচন করুন :"
+                    android:textColor="#000"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <Spinner
+                    android:id="@+id/houseLandType"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="7dp"
+                    android:background="@drawable/edtext_background"
+                    android:textColor="#000"
+                    tools:ignore="Autofill,HardcodedText,LabelFor,TextFields">
+
+                </Spinner>
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+
+                <TextView
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:textColor="#000"
+                    android:layout_marginStart="7dp"
+                    android:gravity="center_vertical"
+                    android:text="বাসাটি কত তলা বিশিষ্ট : "
+                    android:layout_height="match_parent"
+                    tools:ignore="HardcodedText">
+                </TextView>
+
+
+                <EditText
+                    android:id="@+id/HouseLand_floor"
+                    android:layout_marginEnd="7dp"
+                    android:background="@drawable/edtext_background"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    tools:ignore="Autofill,LabelFor,TextFields">
+
+                </EditText>
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+            <LinearLayout
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:gravity="center_vertical"
+                    android:textColor="#000"
+                    android:layout_marginStart="7dp"
+                    android:layout_weight="2"
+                    android:text="  বাসাটি সর্বমোট কত বর্গ ফিট :"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+
+
+                <EditText
+                    android:id="@+id/houLand_quantity"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="7dp"
+                    android:background="@drawable/edtext_background"
+                    android:inputType="text"
+                    android:textColor="#000"
+                    tools:ignore="Autofill,HardcodedText,LabelFor,TextFields">
+
+                </EditText>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:id="@+id/houLan_price"
+                    android:gravity="center_vertical"
+                    android:textColor="#000"
+                    android:layout_marginStart="7dp"
+                    android:layout_weight="2"
+                    android:text="  বাসাটি কত টাকায় বিক্রি করতে চান :"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+
+
+                <EditText
+                    android:id="@+id/houLnd_Price"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="7dp"
+                    android:background="@drawable/edtext_background"
+                    android:inputType="text"
+                    android:textColor="#000"
+                    tools:ignore="Autofill,HardcodedText,LabelFor,TextFields">
+
+                </EditText>
+            </LinearLayout>
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+
+                <TextView
+                    android:id="@+id/houseLand_document"
+                    android:gravity="center_vertical"
+                    android:textColor="#000"
+                    android:layout_weight="2"
+                    android:text="এই জায়গায় সব টেক্স পরিশোধ করা  হইছে কী ?"
+                    android:layout_marginStart="7dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <RadioGroup
+                    android:id="@+id/radioGroupTax"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="7dp"
+                    android:layout_width="0dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <RadioButton
+                        android:id="@+id/No_Radio_button_tax"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="না"
+                        tools:ignore="HardcodedText" />
+                    <RadioButton
+                        android:id="@+id/Yes_Radio_button_tax"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="হ্যাঁ"
+                        android:layout_marginStart="10dp"
+                        android:textSize="13sp"
+                        tools:ignore="HardcodedText,KeyboardInaccessibleWidget" />
+
+                </RadioGroup>
+
+
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+
+                android:visibility="gone"
+                android:id="@+id/taxclerLinerLayout"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:id="@+id/Tax_data"
+                    android:gravity="center_vertical"
+                    android:textColor="#000"
+                    android:layout_weight="2"
+                    android:layout_marginStart="7dp"
+                    android:text="কয় বছরের কর পরিশোধ করেন নি নির্বাচন করুন ? "
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <Spinner
+                    android:id="@+id/taxClrSpinner"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/edtext_background"
+                    android:textColor="#000"
+                    tools:ignore="Autofill,HardcodedText,LabelFor,TextFields">
+
+                </Spinner>
+
+            </LinearLayout>
+            <LinearLayout
+
+                android:orientation="horizontal"
+                android:layout_marginStart="7dp"
+                android:layout_marginEnd="7dp"
+                android:weightSum="3"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+
+                <TextView
+                    android:id="@+id/HouseLandParking"
+                    android:textColor="#000"
+                    android:layout_weight="2"
+                    android:textSize="15sp"
+                    android:gravity="center_vertical"
+                    android:text="  পার্কিং এর জন্য ব্যবস্থা আছে কি ? "
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+                <RadioGroup
+                   android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:id="@+id/hlan_parking"
+                    tools:ignore="UselessParent">
+
+                    <RadioButton
+                        android:id="@+id/hlnd_parkingNo_Radio_button"
+                        android:padding="5dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="না"
+                        tools:ignore="HardcodedText" />
+                    <RadioButton
+                        android:id="@+id/hlnd_parking_Yes_Radio_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="হ্যাঁ"
+                        android:padding="5dp"
+                        android:textSize="13sp"
+                        tools:ignore="HardcodedText" />
+
+
+
+                </RadioGroup>
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <CheckBox
+                    android:id="@+id/house_with_land_check_Box"
+                    android:layout_centerHorizontal="true"
+                    android:text="House with land"
+                    android:textSize="15sp"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    tools:ignore="HardcodedText">
+
+
+                </CheckBox>
+
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <Button
+                    android:id="@+id/houLndPostBtn"
+                    android:textAllCaps="false"
+                    android:textSize="18sp"
+                    android:textColor="#fff"
+                    android:text="Submit Post"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/profile_btn_back"
+                    android:layout_width="288dp"
+                    android:layout_height="50dp"
+                    tools:ignore="HardcodedText">
+
+                </Button>
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</RelativeLayout>

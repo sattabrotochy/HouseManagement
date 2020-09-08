@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#DAD8D8"
+    android:layout_height="wrap_content">
+
+
+
+    <LinearLayout
+        android:background="#fff"
+        android:layout_margin="5dp"
+        android:weightSum="3"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        tools:ignore="UselessLeaf,UselessParent">
+
+
+        <TextView
+            android:textColor="#000"
+            android:text="name"
+            android:padding="5dp"
+            android:layout_margin="2dp"
+            android:id="@+id/Srch_name"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            tools:ignore="HardcodedText">
+
+        </TextView>
+        <TextView
+            android:textColor="#000"
+            android:text="address"
+            android:layout_margin="2dp"
+            android:padding="5dp"
+            android:id="@+id/Srch_address"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            tools:ignore="HardcodedText">
+
+        </TextView>
+         <TextView
+             android:textColor="#000"
+             android:text="number"
+             android:layout_margin="2dp"
+             android:padding="5dp"
+             android:id="@+id/Srch_number"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+             tools:ignore="HardcodedText">
+
+        </TextView>
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>
