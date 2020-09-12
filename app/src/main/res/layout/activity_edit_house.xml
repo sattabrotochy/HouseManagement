@@ -1,9 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UpdateAllData.EditHouseActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/liner1"
+        android:orientation="horizontal"
+
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        tools:ignore="UselessLeaf">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:src="@drawable/dada"
+            android:id="@+id/house_image"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+        <TextView
+            android:layout_marginStart="15dp"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/Hus_userName1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="ExtraText,ScrollViewSize,UseCompoundDrawables,UselessLeaf,UselessParent">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            tools:ignore="ContentDescription">
+
+
+        </ImageView>
+        //1
+
+
+        <EditText
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:id="@+id/hus_number"
+            android:padding="5dp"
+            android:textColor="#000"
+            tools:ignore="Autofill,LabelFor,TextFields"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </EditText>
+        <EditText
+            android:enabled="false"
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:id="@+id/hus_userPrice"
+            android:padding="5dp"
+            android:textColor="#000"
+            tools:ignore="Autofill,LabelFor,TextFields"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </EditText>
+        <EditText
+            android:enabled="false"
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:id="@+id/hus_userFloor"
+            android:padding="5dp"
+            android:textColor="#000"
+            tools:ignore="Autofill,LabelFor,TextFields"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+        </EditText>
+
+
+        <EditText
+            android:enabled="false"
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:id="@+id/hus_userRoom"
+            android:padding="5dp"
+            android:textColor="#000"
+            tools:ignore="Autofill,LabelFor,TextFields"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </EditText>
+
+        <EditText
+            android:enabled="false"
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:id="@+id/hus_userBathRoom"
+            android:padding="5dp"
+            android:textColor="#000"
+            tools:ignore="Autofill,LabelFor,TextFields"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </EditText>
+
+        <Button
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:background="@drawable/profile_btn_back"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:text="Update"
+            android:id="@+id/hus_post_update_Btn"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            tools:ignore="HardcodedText">
+
+
+
+        </Button>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

@@ -18,6 +18,7 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:src="@drawable/dada"
+            android:id="@+id/flat_userImage"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
             android:layout_width="45dp"
@@ -28,7 +29,7 @@
         <TextView
             android:layout_marginStart="15dp"
             android:layout_gravity="center_vertical"
-            android:id="@+id/Land_userName1"
+            android:id="@+id/flat_userName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
@@ -54,7 +55,7 @@
         <EditText
             android:background="@drawable/main_btn_back"
             android:layout_marginTop="10dp"
-            android:id="@+id/flat_userAddressEdit"
+            android:id="@+id/flat_phne_numberEdit"
             android:padding="5dp"
             android:textColor="#000"
             tools:ignore="Autofill,LabelFor,TextFields"
@@ -64,9 +65,23 @@
 
 
         </EditText>
+        <EditText
+            android:background="@drawable/main_btn_back"
+            android:layout_marginTop="10dp"
+            android:id="@+id/flat_floor_id"
+            android:padding="5dp"
+            android:textColor="#000"
+            tools:ignore="Autofill,LabelFor,TextFields"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </EditText>
+
         //2
         <EditText
-            android:id="@+id/flat_userqntyEdit"
+            android:id="@+id/flat_user_price"
             android:background="@drawable/main_btn_back"
             android:layout_marginTop="10dp"
             android:padding="5dp"
@@ -79,75 +94,7 @@
 
         </EditText>
         //3
-        <EditText
-            android:id="@+id/flat_userPriceEdit"
-            android:background="@drawable/main_btn_back"
-            android:layout_marginTop="10dp"
-            android:padding="5dp"
-            android:textColor="#000"
-            android:textSize="17sp"
-            tools:ignore="Autofill,LabelFor,TextFields"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-
-        </EditText>
-        //4
-        <EditText
-            android:id="@+id/flat_user_per_Unit_priceEdit"
-            android:background="@drawable/main_btn_back"
-            android:layout_marginTop="10dp"
-            android:padding="5dp"
-            android:textColor="#000"
-            android:textSize="17sp"
-            tools:ignore="Autofill,LabelFor,TextFields"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-        </EditText>
-        //5
-        <EditText
-            android:id="@+id/flat_userMontlyPayDateEdit"
-            android:background="@drawable/main_btn_back"
-            android:layout_marginTop="10dp"
-            android:padding="5dp"
-            android:textColor="#000"
-            android:textSize="17sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:ignore="Autofill,LabelFor,TextFields">
-
-
-        </EditText>
-        //6
-        <EditText
-            android:id="@+id/flat_userLevDateEdit"
-            android:background="@drawable/main_btn_back"
-            android:layout_marginTop="10dp"
-            android:padding="5dp"
-            android:textColor="#000"
-            android:textSize="17sp"
-            tools:ignore="Autofill,LabelFor,TextFields"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-        </EditText>
-        //7
-        <EditText
-            android:background="@drawable/main_btn_back"
-            android:layout_marginTop="10dp"
-            android:id="@+id/flat_userAdnFeeEdit"
-            android:padding="5dp"
-            android:textColor="#000"
-            android:textSize="17sp"
-            tools:ignore="Autofill,LabelFor,TextFields"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-        </EditText>
 
         <Button
             android:textColor="#fff"
@@ -156,7 +103,7 @@
             android:textAllCaps="false"
             android:textSize="18sp"
             android:text="Update"
-            android:id="@+id/update_Btn"
+            android:id="@+id/flat_update_Btn"
             android:layout_marginTop="20dp"
             android:layout_gravity="center_horizontal"
             android:layout_width="280dp"

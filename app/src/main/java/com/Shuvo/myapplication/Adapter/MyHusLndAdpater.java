@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.Shuvo.myapplication.Class.HuslndModelFront;
 import com.Shuvo.myapplication.R;
 import com.Shuvo.myapplication.ShowActivity.HusLandMDActivity;
+import com.Shuvo.myapplication.UpdateAllData.EditHusLandActivity;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -77,6 +78,9 @@ public class MyHusLndAdpater extends RecyclerView.Adapter<MyHusLndAdpater.MyView
                                 context.startActivity(intent);
                                 break;
                             case 1:
+                                Intent intent1=new Intent(context, EditHusLandActivity.class);
+                                intent1.putExtra("id",id);
+                                context.startActivity(intent1);
 
                                 break;
                             case 2:

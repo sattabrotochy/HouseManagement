@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.Shuvo.myapplication.Class.frontModel;
 import com.Shuvo.myapplication.R;
 import com.Shuvo.myapplication.ShowActivity.HouseMoreDtlActivity;
+import com.Shuvo.myapplication.UpdateAllData.EditHouseActivity;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -79,7 +80,9 @@ public class MyHouseAdapter extends RecyclerView.Adapter<MyHouseAdapter.MYView> 
                                 context.startActivity(intent);
                                 break;
                             case 1:
-
+                                Intent intent1=new Intent(context, EditHouseActivity.class);
+                                intent1.putExtra("id",id);
+                                context.startActivity(intent1);
                                 break;
                             case 2:
                                 HouseDataDelete(id);

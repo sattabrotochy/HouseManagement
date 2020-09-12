@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         main_Viewpager.setAdapter(adapter);
         main_tab_layout.setupWithViewPager(main_Viewpager);
 
+        nameLoad();
+        imageLoad();
 
         profile_image_user.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,8 +78,7 @@ public class MainActivity extends AppCompatActivity {
         Animatoo.animateSlideRight(this);
         finish();
 
-        nameLoad();
-        imageLoad();
+
     }
     private void imageLoad() {
 
