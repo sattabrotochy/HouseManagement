@@ -5,8 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +20,9 @@ import com.Shuvo.myapplication.Adapter.EditLandApadter;
 import com.Shuvo.myapplication.Class.LandMrDtSWModel;
 import com.Shuvo.myapplication.Class.MySingleton;
 import com.Shuvo.myapplication.Class.RequestHandler;
+import com.Shuvo.myapplication.ImageUploadActivity;
 import com.Shuvo.myapplication.MainActivity;
+import com.Shuvo.myapplication.PostImageUploadActivity;
 import com.Shuvo.myapplication.R;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -44,7 +48,7 @@ public class EditlandPostActivity extends AppCompatActivity {
     public static ArrayList<LandMrDtSWModel> mrDtSWModelArrayList;
     int id;
     TextView Land_userName, land_number, land_userAddress, land_userqnty, land_userPrice, land_user_per_Unit_price, land_userMontlyPayDate, land_userLevDate, land_userAdnFee;
-    Button land_post_update_Btn;
+    Button land_post_update_Btn,land_Image_update_Btn;
     String name;
     String TAG = "EditlandPostActivity";
     Context context = EditlandPostActivity.this;
@@ -55,6 +59,8 @@ public class EditlandPostActivity extends AppCompatActivity {
     RecyclerView landEditItem;
     CircleImageView landEd_userImage;
     ProgressDialog progressbar2;
+    ImageView postImage;
+    String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +72,7 @@ public class EditlandPostActivity extends AppCompatActivity {
         Toast.makeText(this, id + "", Toast.LENGTH_SHORT).show();
 
 
+        postImage=findViewById(R.id.postImage);
         landEditItem = findViewById(R.id.landEditItem);
         mrDtSWModelArrayList = new ArrayList<>();
         auth = FirebaseAuth.getInstance();
@@ -88,7 +95,22 @@ public class EditlandPostActivity extends AppCompatActivity {
         land_userLevDate = findViewById(R.id.land_userLevDate1);
         land_userAdnFee = findViewById(R.id.land_userAdnFee1);
         land_post_update_Btn = findViewById(R.id.land_post_update_Btn);
+        land_Image_update_Btn = findViewById(R.id.land_Image_update_Btn);
 
+
+        url="https://famousdb.000webhostapp.com/LandImageUpload.php";
+
+        land_Image_update_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent=new Intent(EditlandPostActivity.this, PostImageUploadActivity.class);
+                intent.putExtra("url",url);
+                intent.putExtra("id",id);
+                startActivity(intent);
+
+            }
+        });
 
         dataSHow();
 
@@ -233,6 +255,8 @@ public class EditlandPostActivity extends AppCompatActivity {
         super.onStart();
 
 
+        postImageLoad();
+
         StringRequest request = new StringRequest(Request.Method.GET, "https://famousdb.000webhostapp.com/currentUserImage.php?firebase_id=" + currentUserID, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -255,6 +279,35 @@ public class EditlandPostActivity extends AppCompatActivity {
 
         MySingleton.getInstance(this).addToRequestQueue(request);
 
+
+    }
+
+    private void postImageLoad()
+    {
+//        StringRequest request = new StringRequest(Request.Method.GET, "https://famousdb.000webhostapp.com/showlandPostMoreDetails.php?id=" + id, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//
+//
+//                String image2 = response;
+//                Log.d(TAG, "onResponse: "+image2);
+//                String url = "https://famousdb.000webhostapp.com/" + image2;
+//                Picasso.get()
+//                        .load(url)
+//                        .into(postImage);
+//
+//
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//
+//            }
+//        });
+//
+//        MySingleton.getInstance(this).addToRequestQueue(request);
+//
+//
 
     }
 

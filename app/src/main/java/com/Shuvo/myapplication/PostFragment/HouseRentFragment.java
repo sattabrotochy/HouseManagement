@@ -92,10 +92,7 @@ public class HouseRentFragment extends Fragment implements AdapterView.OnItemSel
 
         progressDialog = new ProgressDialog(getContext());
         //Image view
-        HouseRentImageType = view.findViewById(R.id.HouseRentImageType);
-        HouseRentImageType1 = view.findViewById(R.id.HouseRentImageType1);
-        HouseRentImageType2 = view.findViewById(R.id.HouseRentImageType2);
-        HouseRentImageType3 = view.findViewById(R.id.HouseRentImageType3);
+
 
 
         //GroupRadioButton
@@ -119,7 +116,7 @@ public class HouseRentFragment extends Fragment implements AdapterView.OnItemSel
         //button
 //        videoUpload = view.findViewById(R.id.videoUpload);
         houseRentPost = view.findViewById(R.id.houseRentTypePost);
-        house_rent_image = view.findViewById(R.id.house_rent_image);
+
 
 
         //editText

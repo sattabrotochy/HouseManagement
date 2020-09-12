@@ -2,6 +2,7 @@ package com.Shuvo.myapplication.PostFragment;
 
 import android.app.ProgressDialog;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.Shuvo.myapplication.Class.MySingleton;
+import com.Shuvo.myapplication.ImageUploadActivity;
 import com.Shuvo.myapplication.R;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -55,6 +57,7 @@ public class LandRentFragment extends Fragment {
     Button image_select;
     ImageView land_Image;
     private RadioButton Yes_Radio_button_advance, No_Radio_button_advance;
+    String url;
 
     public LandRentFragment() {
 
@@ -77,7 +80,7 @@ public class LandRentFragment extends Fragment {
         progressDialog = new ProgressDialog(getContext());
 
 
-        land_Image=view.findViewById(R.id.land_Image);
+
         //EditText
         monthlyPaymentLand = view.findViewById(R.id.monthlyPaymentLand);
         minimumTimeSpendLand = view.findViewById(R.id.minimumTimeSpendLand);
@@ -86,6 +89,11 @@ public class LandRentFragment extends Fragment {
         land_rent = view.findViewById(R.id.land_rent);
         per_quantity_rent = view.findViewById(R.id.per_quantity_rent);
         land_address = view.findViewById(R.id.land_address);
+        url="https://famousdb.000webhostapp.com/LandImageUpload.php";
+
+
+
+
 
 
         //radioGroup
@@ -301,4 +309,6 @@ public class LandRentFragment extends Fragment {
         MySingleton.getInstance(getContext()).addToRequestQueue(request1);
 
     }
+
+
 }

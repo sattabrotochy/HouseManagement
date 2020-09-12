@@ -1,5 +1,7 @@
 package com.Shuvo.myapplication;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -10,30 +12,28 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.Shuvo.myapplication.Class.RequestHandler;
-import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 
-public class ImageUploadActivity extends AppCompatActivity {
+public class PostImageUploadActivity extends AppCompatActivity {
 
 
-    FirebaseAuth auth;
-    String url;
-    private String intent_item_id, currentUserId;
+    private String intent_item_id;
     private ImageView pp;
     private Button buttonUpload, select_picture;
     private Bitmap bitmap;
     private Uri filePath;
-    private String uid = "";
+    private String uid = "",url;
+    int id;
+    String TAG="PostImageUploadActivity";
     private Bitmap originalImage;
 
     public static Bitmap getResizedBitmap(Bitmap bm, int newHeight, int newWidth) {
@@ -53,15 +53,14 @@ public class ImageUploadActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_image_upload);
+        setContentView(R.layout.activity_post_image_upload);
 
 
+        url=getIntent().getStringExtra("url");
+        id=getIntent().getExtras().getInt("id",0);
 
 
-        auth = FirebaseAuth.getInstance();
-        currentUserId = auth.getCurrentUser().getUid();
-
-        url = "https://famousdb.000webhostapp.com/imageUpload.php";
+        Log.d(TAG, "onCreate: " + url);
 
         Bundle extras = getIntent().getExtras();
         if (extras == null) {
@@ -75,9 +74,9 @@ public class ImageUploadActivity extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
 
         ////////////////////////////////////////////////////////////////////////////////////////////
-        buttonUpload = (Button) findViewById(R.id.submit);
-        pp = (ImageView) findViewById(R.id.image);
-        select_picture = (Button) findViewById(R.id.select_picture);
+        buttonUpload = (Button) findViewById(R.id.post_submit);
+        pp = (ImageView) findViewById(R.id.post_image);
+        select_picture = (Button) findViewById(R.id.post_select_picture);
         ////////////////////////////////////////////////////////////////////////////////////////////
 
         select_picture.setOnClickListener(new View.OnClickListener() {
@@ -95,8 +94,9 @@ public class ImageUploadActivity extends AppCompatActivity {
                 uploadPic();
             }
         });
-    }
 
+
+    }
     public void uploadPic() {
         class UploadImage extends AsyncTask<Bitmap, Void, String> {
 
@@ -126,7 +126,7 @@ public class ImageUploadActivity extends AppCompatActivity {
 
                 HashMap<String, String> data = new HashMap<>();
                 data.put("pp", uploadImage);
-                data.put("id", currentUserId);
+                data.put("id", String.valueOf(id));
                 String result = rh.sendPostRequest(url, data);
 
                 return result;

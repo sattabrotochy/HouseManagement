@@ -18,7 +18,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,UnusedAttribute">
-        <activity android:name=".UpdateAllData.EditHouseActivity"></activity>
+        <activity android:name=".PostImageUploadActivity"></activity>
+        <activity android:name=".UpdateAllData.EditHouseActivity" />
         <activity android:name=".UpdateAllData.EditHusLandActivity" />
         <activity android:name=".UpdateAllData.EditFlatActivity" />
         <activity android:name=".SearchActivity" />

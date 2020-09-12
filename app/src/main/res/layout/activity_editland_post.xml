@@ -41,6 +41,21 @@
 
 
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="ScrollViewCount">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="Orientation,ScrollViewSize">
+
+
+
+
+
     <LinearLayout
         android:id="@+id/liner1"
         android:orientation="horizontal"
@@ -79,6 +94,7 @@
 
 
         <ImageView
+            android:id="@+id/postImage"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             tools:ignore="ContentDescription">
@@ -217,9 +233,30 @@
 
         </Button>
 
+        <Button
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:background="@drawable/profile_btn_back"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:text="Land Image upload "
+            android:id="@+id/land_Image_update_Btn"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            tools:ignore="HardcodedText">
+
+
+
+        </Button>
+
+
+
 
     </LinearLayout>
 
-
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
