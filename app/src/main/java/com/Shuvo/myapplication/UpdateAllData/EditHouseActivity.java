@@ -1,5 +1,7 @@
 package com.Shuvo.myapplication.UpdateAllData;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.Shuvo.myapplication.Class.MySingleton;
 import com.Shuvo.myapplication.Class.RequestHandler;
+import com.Shuvo.myapplication.MainActivity;
 import com.Shuvo.myapplication.R;
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -23,6 +27,9 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -36,6 +43,7 @@ public class EditHouseActivity extends AppCompatActivity {
     TextView Hus_userName1;
     EditText hus_number, hus_userPrice, hus_userFloor, hus_userRoom, hus_userBathRoom;
     Button hus_post_update_Btn;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +55,7 @@ public class EditHouseActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         currentUserID = auth.getCurrentUser().getUid();
 
+        progressDialog=new ProgressDialog(this);
 
         house_image = findViewById(R.id.house_image);
 
@@ -56,10 +65,7 @@ public class EditHouseActivity extends AppCompatActivity {
         hus_userFloor = findViewById(R.id.hus_userFloor);
         hus_userRoom = findViewById(R.id.hus_userRoom);
         hus_userBathRoom = findViewById(R.id.hus_userBathRoom);
-
         hus_post_update_Btn = findViewById(R.id.hus_post_update_Btn);
-
-
         hus_post_update_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,8 +79,54 @@ public class EditHouseActivity extends AppCompatActivity {
 
     }
 
-    private void Dataupdate() {
+    private void Dataupdate()
+    {
+        progressDialog.setMessage("wait.........");
+        progressDialog.show();
+        final  String phn_number,house_rnt_price,house_floor,house_room,house_bathrm ;
 
+        phn_number=hus_number.getText().toString().trim();
+        house_rnt_price=hus_userPrice.getText().toString().trim();
+        house_floor=hus_userFloor.getText().toString().trim();
+        house_room=hus_userRoom.getText().toString().trim();
+        house_bathrm=hus_userBathRoom.getText().toString().trim();
+
+
+        StringRequest request=new StringRequest(Request.Method.POST, "https://famousdb.000webhostapp.com/UpdateHouseData.php?id="+id, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response)
+            {
+                Toast.makeText(EditHouseActivity.this, "Data upload successful", Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+                startActivity(new Intent(EditHouseActivity.this, MainActivity.class));
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error)
+            {
+                Toast.makeText(EditHouseActivity.this, error.getMessage()+"data not upload", Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+            }
+        })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError
+            {
+                Map<String,String> data=new HashMap<>();
+
+                data.put("phn_number",phn_number);
+                data.put("house_rnt_price",house_rnt_price);
+                data.put("house_floor",house_floor);
+                data.put("house_room",house_room);
+                data.put("house_bathrm",house_bathrm);
+
+                return data;
+
+            }
+        };
+
+        MySingleton.getInstance(this).addToRequestQueue(request);
 
     }
 
@@ -142,7 +194,6 @@ public class EditHouseActivity extends AppCompatActivity {
                 Hus_userName1.setText(object.getString("name"));
                 hus_number.setText(object.getString("phn_number"));
                 hus_userPrice.setText(object.getString("house_rnt_price"));
-                hus_userFloor.setText(object.getString("house_floor"));
                 hus_userFloor.setText(object.getString("house_floor"));
                 hus_userRoom.setText(object.getString("house_room"));
                 hus_userBathRoom.setText(object.getString("house_bathrm"));

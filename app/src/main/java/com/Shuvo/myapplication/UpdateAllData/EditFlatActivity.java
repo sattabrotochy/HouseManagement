@@ -1,25 +1,23 @@
 package com.Shuvo.myapplication.UpdateAllData;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.Shuvo.myapplication.Adapter.FlatmrDtsAdapter;
-import com.Shuvo.myapplication.Adapter.LandMDSwAdapter;
-import com.Shuvo.myapplication.Class.FlatMoreDetls;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.Shuvo.myapplication.Class.LandMrDtSWModel;
 import com.Shuvo.myapplication.Class.MySingleton;
 import com.Shuvo.myapplication.Class.RequestHandler;
+import com.Shuvo.myapplication.MainActivity;
 import com.Shuvo.myapplication.R;
-import com.Shuvo.myapplication.ShowActivity.FlatShowActivity;
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -32,6 +30,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -39,15 +39,16 @@ public class EditFlatActivity extends AppCompatActivity {
 
 
     private static final String TAG = "EdotFlatActivity";
-    EditText flat_userAddressEdit,flat_phne_numberEdit,flat_userqntyEdit,flat_userPriceEdit,flat_user_per_Unit_priceEdit,flat_userMontlyPayDateEdit,flat_userLevDateEdit,flat_userAdnFeeEdit;
+    EditText flat_userAddressEdit, flat_phne_numberEdit, flat_userqntyEdit, flat_userPriceEdit, flat_user_per_Unit_priceEdit, flat_userMontlyPayDateEdit, flat_userLevDateEdit, flat_userAdnFeeEdit;
 
     TextView flat_userName;
-     private int id;
-     String landPostEdit,currentUserID;
-     FirebaseAuth auth;
-     ArrayList<LandMrDtSWModel> mrDtSWModelArrayList;
-     Button flat_update_Btn;
-     CircleImageView flat_userImage;
+    String landPostEdit, currentUserID;
+    FirebaseAuth auth;
+    ArrayList<LandMrDtSWModel> mrDtSWModelArrayList;
+    Button flat_update_Btn;
+    CircleImageView flat_userImage;
+    ProgressDialog progressDialog;
+    private int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,28 +56,28 @@ public class EditFlatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edot_flat);
 
 
-        id=getIntent().getExtras().getInt("id");
+        id = getIntent().getExtras().getInt("id");
 
-        auth=FirebaseAuth.getInstance();
-        currentUserID=auth.getCurrentUser().getUid();
+        auth = FirebaseAuth.getInstance();
+        currentUserID = auth.getCurrentUser().getUid();
         //FlatMoreDetls model= (FlatMoreDetls) getIntent().getSerializableExtra("model");
 
 
-        flat_userAddressEdit=findViewById(R.id.flat_floor_id);
-        flat_userName=findViewById(R.id.flat_userName);
-        flat_userqntyEdit=findViewById(R.id.flat_user_price);
-        flat_phne_numberEdit=findViewById(R.id.flat_phne_numberEdit);
-        flat_update_Btn=findViewById(R.id.flat_update_Btn);
+        flat_userAddressEdit = findViewById(R.id.flat_floor_id);
+        flat_userName = findViewById(R.id.flat_userName);
+        flat_userqntyEdit = findViewById(R.id.flat_user_price);
+        flat_phne_numberEdit = findViewById(R.id.flat_phne_numberEdit);
+        flat_update_Btn = findViewById(R.id.flat_update_Btn);
 
-        flat_userImage=findViewById(R.id.flat_userImage);
+        flat_userImage = findViewById(R.id.flat_userImage);
 
+        progressDialog = new ProgressDialog(this);
 
         dataEdit();
 
         flat_update_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 flatUserEdit();
 
             }
@@ -85,24 +86,46 @@ public class EditFlatActivity extends AppCompatActivity {
 
     }
 
-    private void flatUserEdit()
-    {
-        String phn_number,floorId,FlatPrice;
+    private void flatUserEdit() {
 
-        phn_number=flat_phne_numberEdit.getText().toString().trim();
-        floorId=flat_userAddressEdit.getText().toString().trim();
-        FlatPrice=flat_userqntyEdit.getText().toString().trim();
+        progressDialog.setMessage("Wait..........");
+        progressDialog.show();
+        final String phn_number, floorId, FlatPrice;
 
-
-
-
+        phn_number = flat_phne_numberEdit.getText().toString().trim();
+        floorId = flat_userAddressEdit.getText().toString().trim();
+        FlatPrice = flat_userqntyEdit.getText().toString().trim();
 
 
+        StringRequest request = new StringRequest(Request.Method.POST, "https://famousdb.000webhostapp.com/UpdateFlatData.php?id=" + id, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(EditFlatActivity.this, "data upload successful", Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+                startActivity(new Intent(EditFlatActivity.this, MainActivity.class));
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(EditFlatActivity.this, error.getMessage() + "data not upload", Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> data = new HashMap<>();
+                data.put("phn_number", phn_number);
+                data.put("floorId", floorId);
+                data.put("FlatPrice", FlatPrice);
+                return data;
+
+            }
+        };
 
 
-
-
-
+        MySingleton.getInstance(this).addToRequestQueue(request);
 
 
     }
@@ -114,14 +137,16 @@ public class EditFlatActivity extends AppCompatActivity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
+                progressDialog.show();
 
             }
 
             @Override
             protected void onPostExecute(String shl) {
                 super.onPostExecute(shl);
-                landPostEdit= shl;
+                landPostEdit = shl;
 
+                progressDialog.dismiss();
                 FlatPostShow();
             }
 
@@ -129,7 +154,7 @@ public class EditFlatActivity extends AppCompatActivity {
             protected String doInBackground(Void... params) {
 
                 RequestHandler handler3 = new RequestHandler();
-                String shl = handler3.sendGetRequest("https://famousdb.000webhostapp.com/showflatRentMdtls.php?id="+id);
+                String shl = handler3.sendGetRequest("https://famousdb.000webhostapp.com/showflatRentMdtls.php?id=" + id);
                 return shl;
 
             }
@@ -162,7 +187,7 @@ public class EditFlatActivity extends AppCompatActivity {
 //                        object.getString("image")
 //
 //
-//                ));]
+//                ));
 
                 flat_userName.setText(object.getString("name"));
                 flat_userAddressEdit.setText(object.getString("floorId"));
@@ -173,14 +198,10 @@ public class EditFlatActivity extends AppCompatActivity {
             }
 
 
-
-
-
         } catch (JSONException e) {
             e.printStackTrace();
             Toast.makeText(this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
         }
-
 
 
     }
@@ -195,12 +216,11 @@ public class EditFlatActivity extends AppCompatActivity {
             public void onResponse(String response) {
 
 
-               String  image = response;
+                String image = response;
                 String url = "https://famousdb.000webhostapp.com/" + image;
                 Picasso.get()
                         .load(url)
                         .into(flat_userImage);
-
 
 
             }

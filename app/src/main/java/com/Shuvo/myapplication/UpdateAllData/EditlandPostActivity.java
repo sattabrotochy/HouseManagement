@@ -2,6 +2,7 @@ package com.Shuvo.myapplication.UpdateAllData;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.Shuvo.myapplication.Adapter.EditLandApadter;
 import com.Shuvo.myapplication.Class.LandMrDtSWModel;
 import com.Shuvo.myapplication.Class.MySingleton;
 import com.Shuvo.myapplication.Class.RequestHandler;
+import com.Shuvo.myapplication.MainActivity;
 import com.Shuvo.myapplication.R;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -100,6 +102,9 @@ public class EditlandPostActivity extends AppCompatActivity {
     }
 
     private void dataUpdate() {
+        progressbar2.setMessage("please Wait..........");
+        progressbar2.show();
+        progressbar2.setCanceledOnTouchOutside(false);
         final String phn_number = land_number.getText().toString().trim();
         final String land_price = land_userPrice.getText().toString().trim();
         final String per_qty_price = land_user_per_Unit_price.getText().toString().trim();
@@ -111,11 +116,15 @@ public class EditlandPostActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(context, "Data Upload successful", Toast.LENGTH_SHORT).show();
+                progressbar2.dismiss();
+                startActivity(new Intent(EditlandPostActivity.this, MainActivity.class));
+
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(context, error.getMessage().toString() + "data not upload", Toast.LENGTH_SHORT).show();
+                progressbar2.dismiss();
             }
         }) {
             @Override
@@ -147,6 +156,7 @@ public class EditlandPostActivity extends AppCompatActivity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
+                progressbar2.show();
 
             }
 
@@ -154,7 +164,8 @@ public class EditlandPostActivity extends AppCompatActivity {
             protected void onPostExecute(String shl) {
                 super.onPostExecute(shl);
                 DATA_EDIT_LAND = shl;
-                Toast.makeText(EditlandPostActivity.this, DATA_EDIT_LAND, Toast.LENGTH_SHORT).show();
+               // Toast.makeText(EditlandPostActivity.this, DATA_EDIT_LAND, Toast.LENGTH_SHORT).show();
+                progressbar2.dismiss();
                 DataLoad();
             }
 
