@@ -25,7 +25,7 @@
                 tools:ignore="UselessLeaf">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-
+                    android:id="@+id/land_user_image"
                     android:layout_marginStart="10dp"
                     android:layout_gravity="center"
                     android:src="@drawable/dada"

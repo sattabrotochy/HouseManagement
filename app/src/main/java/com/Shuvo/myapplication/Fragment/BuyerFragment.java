@@ -36,7 +36,9 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.google.firebase.auth.FirebaseAuth;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -68,6 +70,7 @@ public class BuyerFragment extends Fragment {
     LinearLayoutManager layoutManager;
     LinearLayout linerlayoit123, houseRent_linerlayOut;
     FirebaseAuth mAuth;
+    String Imageurl;
     private String JSON_STRING_CAT, LAND_STRING, LandPostCount, houseCount, FLAT_STRING_DATA;
 
     public BuyerFragment() {
@@ -176,7 +179,8 @@ public class BuyerFragment extends Fragment {
                         object.getString("address"),
                         object.getString("houlan_qunty"),
                         object.getString("houLnd_Price"),
-                        object.getString("house_floor")
+                        object.getString("house_floor"),
+                        object.getString("image")
                 ));
             }
 
@@ -240,7 +244,8 @@ public class BuyerFragment extends Fragment {
                         object.getString("address"),
                         object.getString("floorId"),
                         object.getString("flatBadRoom"),
-                        object.getString("flatPrice")
+                        object.getString("flatPrice"),
+                        object.getString("image")
 
                 ));
             }
@@ -308,6 +313,7 @@ public class BuyerFragment extends Fragment {
                         object.getString("house_floor"),
                         object.getString("house_rnt_price"),
                         object.getString("house_room"),
+                        object.getString("image"),
                         object.getInt("id")
                 ));
             }
@@ -370,7 +376,8 @@ public class BuyerFragment extends Fragment {
                         object.getString("per_qty_price"),
                         object.getString("land_qty"),
                         object.getString("land_price"),
-                        object.getString("active_ckeck")
+                        object.getString("active_ckeck"),
+                        object.getString("image")
                 ));
             }
             adapter = new LandAdapter(getContext(), landrntList);
@@ -400,6 +407,11 @@ public class BuyerFragment extends Fragment {
         countHusLand();
 
     }
+
+
+
+
+
 
 
     //house & land post count

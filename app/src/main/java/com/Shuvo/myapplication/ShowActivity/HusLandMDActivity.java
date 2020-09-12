@@ -105,7 +105,8 @@ public class HusLandMDActivity extends AppCompatActivity {
                         object.getString("houlan_document"),
                         object.getString("houLan_taxClr"),
                         object.getString("houlan_parking"),
-                        object.getString("active_inactive")
+                        object.getString("active_inactive"),
+                        object.getString("image")
 
 
                 ));

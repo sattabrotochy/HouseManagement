@@ -25,10 +25,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MyHouseAdapter extends RecyclerView.Adapter<MyHouseAdapter.MYView> {
 
@@ -61,6 +64,7 @@ public class MyHouseAdapter extends RecyclerView.Adapter<MyHouseAdapter.MYView> 
         holder.houseUserPrice.setText(model.getHouse_rnt_price());
         holder.houseUserFloor.setText(model.getHouse_floor());
         holder.houseUserRoom.setText(model.getHouse_room());
+        Picasso.get().load(model.getImage()).into(holder.ActiveProfileImage);
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -143,6 +147,7 @@ public class MyHouseAdapter extends RecyclerView.Adapter<MyHouseAdapter.MYView> 
     public class MYView extends RecyclerView.ViewHolder {
 
         TextView houseUserName, houseUserLocation, houseUserRoom, houseUserPrice, houseUserFloor;
+        CircleImageView ActiveProfileImage;
 
         public MYView(@NonNull View itemView) {
             super(itemView);
@@ -152,6 +157,7 @@ public class MyHouseAdapter extends RecyclerView.Adapter<MyHouseAdapter.MYView> 
             houseUserRoom = itemView.findViewById(R.id.per_qty_price);
             houseUserPrice = itemView.findViewById(R.id.land_price);
             houseUserFloor = itemView.findViewById(R.id.land_qunty);
+            ActiveProfileImage = itemView.findViewById(R.id.ActiveProfileImage);
         }
     }
 }

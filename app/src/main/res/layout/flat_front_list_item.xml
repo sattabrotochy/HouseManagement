@@ -24,6 +24,7 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
 
+                    android:id="@+id/profImage"
                     android:layout_marginStart="10dp"
                     android:layout_gravity="center"
                     android:src="@drawable/dada"

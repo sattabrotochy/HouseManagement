@@ -148,7 +148,8 @@ public class SellerFragment extends Fragment {
                         object.getString("address"),
                         object.getString("houlan_qunty"),
                         object.getString("houLnd_Price"),
-                        object.getString("house_floor")
+                        object.getString("house_floor"),
+                        object.getString("image")
                 ));
             }
 
@@ -209,6 +210,7 @@ public class SellerFragment extends Fragment {
                         object.getString("house_floor"),
                         object.getString("house_rnt_price"),
                         object.getString("house_room"),
+                        object.getString("image"),
                         object.getInt("id")
                 ));
             }
@@ -280,7 +282,8 @@ public class SellerFragment extends Fragment {
                         object.getString("per_qty_price"),
                         object.getString("land_qty"),
                         object.getString("land_price"),
-                        object.getString("active_ckeck")
+                        object.getString("active_ckeck"),
+                        object.getString("image")
 
 
                 ));
@@ -356,7 +359,8 @@ public class SellerFragment extends Fragment {
                         object.getString("floorId"),
                         object.getString("FlatBadRoom"),
                         object.getString("FlatPrice"),
-                        object.getString("Active_Inactive")
+                        object.getString("Active_Inactive"),
+                        object.getString("image")
 
 
 

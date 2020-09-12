@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.Shuvo.myapplication.Class.LandMrDtSWModel;
 import com.Shuvo.myapplication.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -55,6 +56,7 @@ public class LandMDSwAdapter extends RecyclerView.Adapter<LandMDSwAdapter.MyView
         holder.land_userMontlyPayDate.setText(model.getLand_py_Date());
         holder.land_userLevDate.setText(model.getMini_leave_date());
         holder.land_userAdnFee.setText(model.getMini_adv_date());
+        Picasso.get().load(model.getImage()).into(holder.lanmageProd);
 
 
 
@@ -80,7 +82,7 @@ public class LandMDSwAdapter extends RecyclerView.Adapter<LandMDSwAdapter.MyView
 
         TextView Land_userName, land_userAddress, land_userqnty,phn_number ,land_userPrice, land_user_per_Unit_price, land_userMontlyPayDate, land_userLevDate, land_userAdnFee;
 
-        CircleImageView call_user;
+        CircleImageView call_user,lanmageProd;
         public MyView(@NonNull View itemView) {
             super(itemView);
 
@@ -96,6 +98,7 @@ public class LandMDSwAdapter extends RecyclerView.Adapter<LandMDSwAdapter.MyView
             land_userMontlyPayDate = itemView.findViewById(R.id.land_userMontlyPayDate1);
             land_userLevDate = itemView.findViewById(R.id.land_userLevDate1);
             land_userAdnFee = itemView.findViewById(R.id.land_userAdnFee1);
+            lanmageProd = itemView.findViewById(R.id.lanmageProd);
         }
     }
 }

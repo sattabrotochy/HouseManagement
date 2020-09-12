@@ -14,8 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.Shuvo.myapplication.Class.Landrnt;
 import com.Shuvo.myapplication.R;
 import com.Shuvo.myapplication.ShowActivity.LandDatShowActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class LandAdapter extends RecyclerView.Adapter<LandAdapter.MyView> {
 
@@ -49,6 +52,7 @@ public class LandAdapter extends RecyclerView.Adapter<LandAdapter.MyView> {
         holder.land_per_unit_price.setText(model.getPer_qty_price());
         holder.land_quinty.setText(model.getLand_qty());
         holder.land_Price.setText(model.getLand_price());
+        Picasso.get().load(model.getImage()).into(holder.land_user_image);
 
         holder.showAll_dataFlt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +77,7 @@ public class LandAdapter extends RecyclerView.Adapter<LandAdapter.MyView> {
 
 
         TextView land_houseUserName, land_houseUserLocation, land_quinty, land_Price, land_per_unit_price, showAll_dataFlt;
+        CircleImageView land_user_image;
 
         public MyView(@NonNull View itemView) {
             super(itemView);
@@ -83,6 +88,8 @@ public class LandAdapter extends RecyclerView.Adapter<LandAdapter.MyView> {
             land_Price = itemView.findViewById(R.id.land_Price);
             land_per_unit_price = itemView.findViewById(R.id.land_per_unit_price);
             showAll_dataFlt = itemView.findViewById(R.id.showAll_dataFlt);
+            land_user_image = itemView.findViewById(R.id.land_user_image);
+
 
         }
     }

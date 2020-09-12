@@ -4,12 +4,12 @@ public class HouseMDModel {
 
 
     String  name,phn_number,location,house_type,house_floor,house_rnt_type,house_rnt_price, house_room,house_bathrm,
-            house_rnt_date,house_lv_date,house_gs_type, house_gs_bill,house_advc_fee, house_parking,house_lift;
+            house_rnt_date,house_lv_date,house_gs_type, house_gs_bill,house_advc_fee, house_parking,house_lift,image;
 
     public HouseMDModel() {
     }
 
-    public HouseMDModel(String name, String phn_number, String location, String house_type, String house_floor, String house_rnt_type, String house_rnt_price, String house_room, String house_bathrm, String house_rnt_date, String house_lv_date, String house_gs_type, String house_gs_bill, String house_advc_fee, String house_parking, String house_lift) {
+    public HouseMDModel(String name, String phn_number, String location, String house_type, String house_floor, String house_rnt_type, String house_rnt_price, String house_room, String house_bathrm, String house_rnt_date, String house_lv_date, String house_gs_type, String house_gs_bill, String house_advc_fee, String house_parking, String house_lift, String image) {
         this.name = name;
         this.phn_number = phn_number;
         this.location = location;
@@ -26,6 +26,7 @@ public class HouseMDModel {
         this.house_advc_fee = house_advc_fee;
         this.house_parking = house_parking;
         this.house_lift = house_lift;
+        this.image = image;
     }
 
     public String getName() {
@@ -154,5 +155,13 @@ public class HouseMDModel {
 
     public void setHouse_lift(String house_lift) {
         this.house_lift = house_lift;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

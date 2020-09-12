@@ -30,7 +30,7 @@
 
                     <de.hdodenhof.circleimageview.CircleImageView
 
-                        android:id="@+id/userActiveProfileImage"
+                        android:id="@+id/ActiveProfileImage"
                         android:layout_marginStart="10dp"
                         android:layout_gravity="center"
                         android:src="@drawable/dada"
@@ -42,7 +42,7 @@
 
                     <TextView
                         android:id="@+id/landUserName"
-                        android:layout_toRightOf="@id/userActiveProfileImage"
+                        android:layout_toRightOf="@id/ActiveProfileImage"
                         android:textStyle="bold"
                         android:textSize="15sp"
                         android:layout_gravity="center"

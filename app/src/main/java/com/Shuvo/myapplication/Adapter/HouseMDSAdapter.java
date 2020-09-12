@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.Shuvo.myapplication.Class.HouseMDModel;
 import com.Shuvo.myapplication.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -59,6 +60,7 @@ public class                                                                    
         holder.house_parking.setText(mdModel.getHouse_parking());
         holder.house_lift.setText(mdModel.getHouse_lift());
 
+        Picasso.get().load(mdModel.getImage()).into(holder.House_userImage);
 
         holder.house_call.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +86,7 @@ public class                                                                    
         TextView userName,location,house_type,house_floor,house_rnt_type,house_rnt_price,house_room,house_bathrm,house_rnt_date,house_lv_date,house_gs_type,house_gs_bill,house_advc_fee,
                 house_parking,house_lift,phn_number_hs;
 
+        CircleImageView House_userImage;
         CircleImageView house_call;
         public Myview(@NonNull View itemView) {
             super(itemView);
@@ -105,6 +108,7 @@ public class                                                                    
             house_advc_fee=itemView.findViewById(R.id.house_advc_fee);
             house_parking=itemView.findViewById(R.id.house_parking);
             house_lift=itemView.findViewById(R.id.house_lift);
+            House_userImage=itemView.findViewById(R.id.House_userImage);
 
 
 

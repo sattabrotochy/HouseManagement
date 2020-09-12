@@ -57,7 +57,7 @@ public class FlatShowActivity extends AppCompatActivity {
     private void flatShow() {
 
 
-        class GetJSON extends AsyncTask<Void, Void, String> {
+              class GetJSON extends AsyncTask<Void, Void, String> {
 
             @Override
             protected void onPreExecute() {

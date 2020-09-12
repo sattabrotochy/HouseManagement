@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.Shuvo.myapplication.Class.HusLndMDModel;
 import com.Shuvo.myapplication.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -60,6 +61,7 @@ public class HusLndMDApdapter  extends RecyclerView.Adapter<HusLndMDApdapter.MyV
         holder.houLan_taxClr.setText(model.getHouLan_taxClr());
         holder.houlan_parking.setText(model.getHoulan_parking());
         holder.active_inactive.setText(model.getActive_inactive());
+        Picasso.get().load(model.getImage()).into(holder.House_userImage);
         holder.husLand_User_call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,7 +86,7 @@ public class HusLndMDApdapter  extends RecyclerView.Adapter<HusLndMDApdapter.MyV
         TextView name,address,number,houlan_type,houselan_floor,houlan_qunty,houLnd_Price,houlan_document,houLan_taxClr,houlan_parking,active_inactive;
 
 
-        CircleImageView husLand_User_call;
+        CircleImageView husLand_User_call,House_userImage;
 
         public MyView(@NonNull View itemView) {
             super(itemView);
@@ -103,6 +105,7 @@ public class HusLndMDApdapter  extends RecyclerView.Adapter<HusLndMDApdapter.MyV
             houLan_taxClr=itemView.findViewById(R.id.houLan_taxClr);
             houlan_parking=itemView.findViewById(R.id.houlan_parking);
             active_inactive=itemView.findViewById(R.id.active_inactive);
+            House_userImage=itemView.findViewById(R.id.House_userImage);
 
 
         }

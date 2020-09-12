@@ -3,12 +3,12 @@ package com.Shuvo.myapplication.Class;
 public class LandMrDtSWModel {
 
 
-    String name,phn_number, address, per_qty_price, land_qty, land_price, land_py_Date, mini_leave_date, mini_adv_date;
+    String name,phn_number, address, per_qty_price, land_qty, land_price, land_py_Date, mini_leave_date, mini_adv_date,image;
 
     public LandMrDtSWModel() {
     }
 
-    public LandMrDtSWModel(String name, String phn_number, String address, String per_qty_price, String land_qty, String land_price, String land_py_Date, String mini_leave_date, String mini_adv_date) {
+    public LandMrDtSWModel(String name, String phn_number, String address, String per_qty_price, String land_qty, String land_price, String land_py_Date, String mini_leave_date, String mini_adv_date, String image) {
         this.name = name;
         this.phn_number = phn_number;
         this.address = address;
@@ -18,6 +18,7 @@ public class LandMrDtSWModel {
         this.land_py_Date = land_py_Date;
         this.mini_leave_date = mini_leave_date;
         this.mini_adv_date = mini_adv_date;
+        this.image = image;
     }
 
     public String getName() {
@@ -90,5 +91,13 @@ public class LandMrDtSWModel {
 
     public void setMini_adv_date(String mini_adv_date) {
         this.mini_adv_date = mini_adv_date;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

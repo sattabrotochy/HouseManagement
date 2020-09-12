@@ -3,12 +3,12 @@ package com.Shuvo.myapplication.Class;
 public class FlatFrontModel {
 
     int id;
-    String name, address, floorId, FlatBadRoom, FlatPrice,Active_Inactive;
+    String name, address, floorId, FlatBadRoom, FlatPrice,Active_Inactive,image;
 
     public FlatFrontModel() {
     }
 
-    public FlatFrontModel(int id, String name, String address, String floorId, String flatBadRoom, String flatPrice, String active_Inactive) {
+    public FlatFrontModel(int id, String name, String address, String floorId, String flatBadRoom, String flatPrice, String active_Inactive, String image) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -16,7 +16,7 @@ public class FlatFrontModel {
         FlatBadRoom = flatBadRoom;
         FlatPrice = flatPrice;
         Active_Inactive = active_Inactive;
-
+        this.image = image;
     }
 
     public int getId() {
@@ -73,5 +73,13 @@ public class FlatFrontModel {
 
     public void setActive_Inactive(String active_Inactive) {
         Active_Inactive = active_Inactive;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

@@ -15,8 +15,11 @@ import com.Shuvo.myapplication.Class.FlatBuyerModel;
 import com.Shuvo.myapplication.Class.FlatFrontModel;
 import com.Shuvo.myapplication.R;
 import com.Shuvo.myapplication.ShowActivity.FlatShowActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class FlatAdapter extends RecyclerView.Adapter<FlatAdapter.ViewHolder> {
 
@@ -48,6 +51,7 @@ public class FlatAdapter extends RecyclerView.Adapter<FlatAdapter.ViewHolder> {
         holder.Flat_houseUserRoom.setText(model.getFlatBadRoom());
         holder.Flat_houseUserPrice.setText(model.getFlatPrice());
         holder.Flat_houseUserFloor.setText(model.getFloorId());
+        Picasso.get().load(model.getImage()).into(holder.profImage);
 
 
 
@@ -76,6 +80,7 @@ public class FlatAdapter extends RecyclerView.Adapter<FlatAdapter.ViewHolder> {
 
         TextView Flat_houseUserName, Flat_houseUserLocation, Flat_houseUserRoom, Flat_houseUserPrice, Flat_houseUserFloor, showAllData;
 
+        CircleImageView profImage;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -85,6 +90,7 @@ public class FlatAdapter extends RecyclerView.Adapter<FlatAdapter.ViewHolder> {
             Flat_houseUserPrice = itemView.findViewById(R.id.Flat_houseUserPrice);
             Flat_houseUserFloor = itemView.findViewById(R.id.Flat_houseUserFloor);
             showAllData = itemView.findViewById(R.id.showAllData);
+            profImage = itemView.findViewById(R.id.profImage);
 
         }
     }

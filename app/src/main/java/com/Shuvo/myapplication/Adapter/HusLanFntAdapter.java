@@ -13,8 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.Shuvo.myapplication.Class.HuslndModelFront;
 import com.Shuvo.myapplication.R;
 import com.Shuvo.myapplication.ShowActivity.HusLandMDActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HusLanFntAdapter extends RecyclerView.Adapter<HusLanFntAdapter.MyView> {
 
@@ -48,6 +51,7 @@ public class HusLanFntAdapter extends RecyclerView.Adapter<HusLanFntAdapter.MyVi
         holder.Flat_houseUserRoom.setText(modelFront.getHoulan_qunty());
         holder.Flat_houseUserPrice.setText(modelFront.getHouLnd_Price());
         holder.Flat_houseUserFloor.setText(modelFront.getHouse_floor());
+        Picasso.get().load(modelFront.getImage()).into(holder.profImage);
 
 
 
@@ -76,6 +80,7 @@ public class HusLanFntAdapter extends RecyclerView.Adapter<HusLanFntAdapter.MyVi
 
         TextView Flat_houseUserName, Flat_houseUserLocation, Flat_houseUserRoom, Flat_houseUserPrice, Flat_houseUserFloor, showAllData;
 
+        CircleImageView profImage;
 
 
         public MyView(@NonNull View itemView) {
@@ -89,6 +94,7 @@ public class HusLanFntAdapter extends RecyclerView.Adapter<HusLanFntAdapter.MyVi
             Flat_houseUserPrice = itemView.findViewById(R.id.Flat_houseUserPrice);
             Flat_houseUserFloor = itemView.findViewById(R.id.Flat_houseUserFloor);
             showAllData = itemView.findViewById(R.id.showAllData);
+            profImage = itemView.findViewById(R.id.profImage);
         }
     }
 }

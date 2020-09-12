@@ -2,18 +2,19 @@ package com.Shuvo.myapplication.Class;
 
 public class frontModel {
 
-    String   name, location, house_floor, house_rnt_price, house_room;
+    String   name, location, house_floor, house_rnt_price, house_room, Image;
 
     int id;
     public frontModel() {
     }
 
-    public frontModel(String name, String location, String house_floor, String house_rnt_price, String house_room, int id) {
+    public frontModel(String name, String location, String house_floor, String house_rnt_price, String house_room, String image, int id) {
         this.name = name;
         this.location = location;
         this.house_floor = house_floor;
         this.house_rnt_price = house_rnt_price;
         this.house_room = house_room;
+        Image = image;
         this.id = id;
     }
 
@@ -55,6 +56,14 @@ public class frontModel {
 
     public void setHouse_room(String house_room) {
         this.house_room = house_room;
+    }
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        Image = image;
     }
 
     public int getId() {

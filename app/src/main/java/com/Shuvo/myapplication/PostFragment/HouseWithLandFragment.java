@@ -45,7 +45,7 @@ public class HouseWithLandFragment extends Fragment implements AdapterView.OnIte
 
 
     Spinner houseLandType, taxClrSpinner;
-    String houseWithLandType, yes_no_tex_clr_output, taxClrSpinnerType;
+    String houseWithLandType, yes_no_tex_clr_output, taxClrSpinnerType,Imageurl;
     RadioGroup radioGroupTax, hlan_parking;
     RadioButton No_Radio_button_tax, Yes_Radio_button_tax, hlnd_parkingNo_Radio_button, hlnd_parking_Yes_Radio_button;
     LinearLayout taxclerLinerLayout;
@@ -219,6 +219,7 @@ public class HouseWithLandFragment extends Fragment implements AdapterView.OnIte
                 params.put("houlan_document", yes_no_tex_clr_output + ",এই জায়গায় সব টেক্স পরিশোধ করা  হইছে");
                 params.put("houLan_taxClr", taxClrSpinnerType + "কয় বছরের কর পরিশোধ করেন নি");
                 params.put("houlan_parking", husLndParking + ",পার্কিং এর জন্য ব্যবস্থা আছে");
+                params.put("image", Imageurl);
 
 
                 return params;
@@ -269,7 +270,7 @@ public class HouseWithLandFragment extends Fragment implements AdapterView.OnIte
 
 
         numberLoad();
-
+        imageLoad();
         StringRequest request=new StringRequest(Request.Method.GET, "https://famousdb.000webhostapp.com/currentUserId.php?firebase_id="+currentUserId, new Response.Listener<String>() {
             @Override
             public void onResponse(String response)
@@ -316,6 +317,31 @@ public class HouseWithLandFragment extends Fragment implements AdapterView.OnIte
 
         MySingleton.getInstance(getContext()).addToRequestQueue(request);
 
+
+    }
+    private void imageLoad() {
+
+
+        StringRequest request1 = new StringRequest(Request.Method.GET, "https://famousdb.000webhostapp.com/currentUserImage.php?firebase_id=" + currentUserId, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+
+                String image = response;
+                Log.d(ContentValues.TAG, "onResponse: " + image);
+                Imageurl = "https://famousdb.000webhostapp.com/" + image;
+
+
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        });
+
+        MySingleton.getInstance(getContext()).addToRequestQueue(request1);
 
     }
 

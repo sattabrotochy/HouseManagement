@@ -26,10 +26,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MyFlatAdapter extends RecyclerView.Adapter<MyFlatAdapter.MyView> {
 
@@ -60,6 +63,7 @@ public class MyFlatAdapter extends RecyclerView.Adapter<MyFlatAdapter.MyView> {
         holder.Flat_houseUserRoom.setText(model.getFlatBadRoom());
         holder.Flat_houseUserPrice.setText(model.getFlatPrice());
         holder.Flat_houseUserFloor.setText(model.getFloorId());
+        Picasso.get().load(model.getImage()).into(holder.ActiveProfileImage);
 
 
 
@@ -157,6 +161,7 @@ public class MyFlatAdapter extends RecyclerView.Adapter<MyFlatAdapter.MyView> {
 
         TextView Flat_houseUserName, Flat_houseUserLocation, Flat_houseUserRoom, Flat_houseUserPrice, Flat_houseUserFloor, showAllData,act_intc_chk,act_chk,intcv_chk;
 
+        CircleImageView ActiveProfileImage;
 
         public MyView(@NonNull View itemView) {
             super(itemView);
@@ -170,6 +175,7 @@ public class MyFlatAdapter extends RecyclerView.Adapter<MyFlatAdapter.MyView> {
             act_intc_chk = itemView.findViewById(R.id.act_intc_chk);
             act_chk = itemView.findViewById(R.id.act_chk);
             intcv_chk = itemView.findViewById(R.id.intcv_chk);
+            ActiveProfileImage = itemView.findViewById(R.id.ActiveProfileImage);
         }
     }
 }

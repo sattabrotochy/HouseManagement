@@ -2,13 +2,13 @@ package com.Shuvo.myapplication.Class;
 
 public class HusLndMDModel  {
 
-    String  name,phn_number,address,houlan_type,house_floor,houlan_qunty,houLnd_Price,houlan_document,houLan_taxClr,houlan_parking,active_inactive;
+    String  name,phn_number,address,houlan_type,house_floor,houlan_qunty,houLnd_Price,houlan_document,houLan_taxClr,houlan_parking,active_inactive,image;
 
 
     public HusLndMDModel() {
     }
 
-    public HusLndMDModel(String name, String phn_number, String address, String houlan_type, String house_floor, String houlan_qunty, String houLnd_Price, String houlan_document, String houLan_taxClr, String houlan_parking, String active_inactive) {
+    public HusLndMDModel(String name, String phn_number, String address, String houlan_type, String house_floor, String houlan_qunty, String houLnd_Price, String houlan_document, String houLan_taxClr, String houlan_parking, String active_inactive, String image) {
         this.name = name;
         this.phn_number = phn_number;
         this.address = address;
@@ -20,6 +20,7 @@ public class HusLndMDModel  {
         this.houLan_taxClr = houLan_taxClr;
         this.houlan_parking = houlan_parking;
         this.active_inactive = active_inactive;
+        this.image = image;
     }
 
     public String getName() {
@@ -108,5 +109,13 @@ public class HusLndMDModel  {
 
     public void setActive_inactive(String active_inactive) {
         this.active_inactive = active_inactive;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

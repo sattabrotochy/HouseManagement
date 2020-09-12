@@ -27,10 +27,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import static android.content.ContentValues.TAG;
 
@@ -67,6 +70,7 @@ public class MyLandPostAdapter extends RecyclerView.Adapter<MyLandPostAdapter.My
         holder.address.setText(model.getAddress());
         holder.per_qty_price.setText(model.getPer_qty_price());
         holder.land_price.setText(model.getLand_price());
+        Picasso.get().load(model.getImage()).into(holder.userActiveProfileImage);
 
         if (model.getActive_ckeck().equals(" Your post is active")) {
             holder.act_chk.setVisibility(View.VISIBLE);
@@ -161,6 +165,7 @@ public class MyLandPostAdapter extends RecyclerView.Adapter<MyLandPostAdapter.My
 
         TextView name, address, land_qunty, land_price, per_qty_price, act_intc_chk,act_chk,intcv_chk;
 
+        CircleImageView userActiveProfileImage;
 
         public MyView(@NonNull View itemView) {
             super(itemView);
@@ -173,6 +178,7 @@ public class MyLandPostAdapter extends RecyclerView.Adapter<MyLandPostAdapter.My
             act_intc_chk = itemView.findViewById(R.id.act_intc_chk);
             act_chk = itemView.findViewById(R.id.act_chk);
             intcv_chk = itemView.findViewById(R.id.intcv_chk);
+            userActiveProfileImage = itemView.findViewById(R.id.ActiveProfileImage);
 
         }
     }

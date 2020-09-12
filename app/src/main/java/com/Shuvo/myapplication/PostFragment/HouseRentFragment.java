@@ -2,6 +2,7 @@ package com.Shuvo.myapplication.PostFragment;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -64,7 +65,7 @@ public class HouseRentFragment extends Fragment implements AdapterView.OnItemSel
     ImageView Back_To_Home;
     ImageView HouseRentImageType, HouseRentImageType1, HouseRentImageType2, HouseRentImageType3;
 
-    String name="", location="", floorNumberHouse = "", housePrice="", houseRoom="", houseBathRoom="", gasBil="";
+    String name="", location="", floorNumberHouse = "", housePrice="", houseRoom="", houseBathRoom="", gasBil="",Imageurl;
     Button videoUpload, houseRentPost, house_rent_image;
     Uri videoUri;
 
@@ -400,6 +401,7 @@ public class HouseRentFragment extends Fragment implements AdapterView.OnItemSel
                 data.put("house_advc_fee", advanceFeeHouseStringSpinner+"অগ্রিম ভাড়া দিতে হবে");
                 data.put("house_parking", parking);
                 data.put("house_lift", lift);
+                data.put("image", Imageurl);
 
 
                 return data;
@@ -419,6 +421,7 @@ public class HouseRentFragment extends Fragment implements AdapterView.OnItemSel
 
         curruserget();
         curreNumber();
+        imageLoad();
 
 
     }
@@ -464,6 +467,32 @@ public class HouseRentFragment extends Fragment implements AdapterView.OnItemSel
             }
         });
         MySingleton.getInstance(getContext()).addToRequestQueue(request);
+    }
+
+    private void imageLoad() {
+
+
+        StringRequest request1 = new StringRequest(Request.Method.GET, "https://famousdb.000webhostapp.com/currentUserImage.php?firebase_id=" + currentUserID, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+
+                String image = response;
+                Log.d(ContentValues.TAG, "onResponse: " + image);
+                Imageurl = "https://famousdb.000webhostapp.com/" + image;
+
+
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        });
+
+        MySingleton.getInstance(getContext()).addToRequestQueue(request1);
+
     }
 
 }

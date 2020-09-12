@@ -13,8 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.Shuvo.myapplication.Class.frontModel;
 import com.Shuvo.myapplication.R;
 import com.Shuvo.myapplication.ShowActivity.HouseMoreDtlActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.ViewHolder> {
 
@@ -42,6 +45,7 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.ViewHolder> 
         holder.houseUserPrice.setText(model.getHouse_rnt_price());
         holder.houseUserFloor.setText(model.getHouse_floor());
         holder.houseUserRoom.setText(model.getHouse_room());
+        Picasso.get().load(model.getImage()).into(holder.houseImage_user);
 
 
         holder.houseMoreSHow.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +70,7 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.ViewHolder> 
 
         TextView houseUserName, houseUserLocation, houseUserRoom, houseUserPrice, houseUserFloor,houseMoreSHow;
 
+        CircleImageView houseImage_user;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -76,6 +81,7 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.ViewHolder> 
             houseUserPrice = itemView.findViewById(R.id.houseUserPrice);
             houseUserFloor = itemView.findViewById(R.id.houseUserFloor);
             houseMoreSHow = itemView.findViewById(R.id.houseMoreSHow);
+            houseImage_user=itemView.findViewById(R.id.houseImage_user);
 
 
         }

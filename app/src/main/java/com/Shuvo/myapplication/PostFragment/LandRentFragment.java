@@ -1,6 +1,7 @@
 package com.Shuvo.myapplication.PostFragment;
 
 import android.app.ProgressDialog;
+import android.content.ContentValues;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -47,7 +48,7 @@ public class LandRentFragment extends Fragment {
     RadioGroup radioGroupAdvanceMoney;
     String advanceMoneyYesNo,number, land_qty, land_rnt, per_qty_rnt, monthlyPaymentLandType, minimumTimeSpendLandType, advanceFeeType, currentUserID, address;
     Button submitLandPost;
-    String activeInactivesystem, name;
+    String activeInactivesystem, name,Imageurl;
     CheckBox land_check_Box;
     FirebaseAuth mAuth;
     ProgressDialog progressDialog;
@@ -204,6 +205,7 @@ public class LandRentFragment extends Fragment {
                 params.put("per_qty_price", "প্রতি একক জমির ভাড়া" + per_qty_rnt+"টাকা");
                 params.put("mini_adv_date", "সর্বনিম্ন " + advanceFeeType + "মাসের অগ্রিম ভাড়া দিতে হবে");
                 params.put("active_ckeck", activeInactivesystem);
+                params.put("image", Imageurl);
                 return params;
             }
         };
@@ -232,7 +234,7 @@ public class LandRentFragment extends Fragment {
         super.onStart();
 
         numberLoad();
-
+        imageLoad();
         StringRequest request=new StringRequest(Request.Method.GET, "https://famousdb.000webhostapp.com/currentUserId.php?firebase_id="+currentUserID, new Response.Listener<String>() {
             @Override
             public void onResponse(String response)
@@ -271,6 +273,32 @@ public class LandRentFragment extends Fragment {
 
         MySingleton.getInstance(getContext()).addToRequestQueue(request);
 
+
+    }
+
+    private void imageLoad() {
+
+
+        StringRequest request1 = new StringRequest(Request.Method.GET, "https://famousdb.000webhostapp.com/currentUserImage.php?firebase_id=" + currentUserID, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+
+                String image = response;
+                Log.d(ContentValues.TAG, "onResponse: " + image);
+                Imageurl = "https://famousdb.000webhostapp.com/" + image;
+
+
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        });
+
+        MySingleton.getInstance(getContext()).addToRequestQueue(request1);
 
     }
 }

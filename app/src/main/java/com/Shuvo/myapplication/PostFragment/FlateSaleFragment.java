@@ -1,6 +1,7 @@
 package com.Shuvo.myapplication.PostFragment;
 
 import android.app.ProgressDialog;
+import android.content.ContentValues;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -34,7 +35,7 @@ public class FlateSaleFragment extends Fragment {
 
     RadioGroup radioGroupLiftFlat, flat_parking_groupButton;
     RadioButton flat_No_Radio_button, flat_Yes_Radio_button, parking_Flat_No_Radio_button, parking_Flat_Yes_Radio_button;
-    String shu;
+    String shu,Imageurl;
     FirebaseAuth auth;
     EditText flat_address, FloorID, flat_badRoom, flat_bathroom, flat_quantity, flat_price;
     String name, address, floorId, FlatBadRoom, FlatBathroom, FlatQunty, FlatPrice, number, currentUserID, parkingYesNo, activeInactive = "";
@@ -186,6 +187,7 @@ public class FlateSaleFragment extends Fragment {
                 params.put("FlatPrice", "ফ্ল্যাটটির দাম" + FlatPrice + "টাকা");
                 params.put("parkingYesNo", parkingYesNo + "পার্কিং এর জন্য ব্যবস্থা আছে");
                 params.put("Active_Inactive", activeInactive);
+                params.put("image", Imageurl);
                 return params;
             }
         };
@@ -199,6 +201,7 @@ public class FlateSaleFragment extends Fragment {
         super.onStart();
         currentUserIDLoad();
         cuurentNumbwe();
+        imageLoad();
 
     }
 
@@ -242,5 +245,30 @@ public class FlateSaleFragment extends Fragment {
         MySingleton.getInstance(getContext()).addToRequestQueue(request);
     }
 
+    private void imageLoad() {
+
+
+        StringRequest request1 = new StringRequest(Request.Method.GET, "https://famousdb.000webhostapp.com/currentUserImage.php?firebase_id=" + currentUserID, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+
+                String image = response;
+                Log.d(ContentValues.TAG, "onResponse: " + image);
+                Imageurl = "https://famousdb.000webhostapp.com/" + image;
+
+
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        });
+
+        MySingleton.getInstance(getContext()).addToRequestQueue(request1);
+
+    }
 
 }
