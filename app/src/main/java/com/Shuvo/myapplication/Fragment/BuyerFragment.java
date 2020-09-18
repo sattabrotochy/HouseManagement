@@ -180,7 +180,8 @@ public class BuyerFragment extends Fragment {
                         object.getString("houlan_qunty"),
                         object.getString("houLnd_Price"),
                         object.getString("house_floor"),
-                        object.getString("image")
+                        object.getString("image"),
+                        object.getString("husLnd_image")
                 ));
             }
 
@@ -245,7 +246,9 @@ public class BuyerFragment extends Fragment {
                         object.getString("floorId"),
                         object.getString("flatBadRoom"),
                         object.getString("flatPrice"),
-                        object.getString("image")
+                        object.getString("Active_Inactive"),
+                        object.getString("image"),
+                        object.getString("flat_image")
 
                 ));
             }
@@ -314,6 +317,7 @@ public class BuyerFragment extends Fragment {
                         object.getString("house_rnt_price"),
                         object.getString("house_room"),
                         object.getString("image"),
+                        object.getString("house_image"),
                         object.getInt("id")
                 ));
             }
@@ -377,7 +381,8 @@ public class BuyerFragment extends Fragment {
                         object.getString("land_qty"),
                         object.getString("land_price"),
                         object.getString("active_ckeck"),
-                        object.getString("image")
+                        object.getString("image"),
+                        object.getString("landimage")
                 ));
             }
             adapter = new LandAdapter(getContext(), landrntList);

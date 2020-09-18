@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,19 +54,29 @@ public class LandAdapter extends RecyclerView.Adapter<LandAdapter.MyView> {
         holder.land_quinty.setText(model.getLand_qty());
         holder.land_Price.setText(model.getLand_price());
         Picasso.get().load(model.getImage()).into(holder.land_user_image);
+        Picasso.get().load(model.getLandimage()).into(holder.landImage1);
 
-        holder.showAll_dataFlt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        if (model.getActive_ckeck().equals(" Your post is active"))
+        {
+            holder.showAll_dataFlt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-                Intent intent = new Intent(context, LandDatShowActivity.class);
-                intent.putExtra("id", id);
-                Toast.makeText(context, id + "", Toast.LENGTH_SHORT).show();
-                context.startActivity(intent);
+                    Intent intent = new Intent(context, LandDatShowActivity.class);
+                    intent.putExtra("id", id);
+                    Toast.makeText(context, id + "", Toast.LENGTH_SHORT).show();
+                    context.startActivity(intent);
 
 
-            }
-        });
+                }
+            });
+        }
+        else
+        {
+            Toast.makeText(context, "This post is inactive", Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     @Override
@@ -78,6 +89,7 @@ public class LandAdapter extends RecyclerView.Adapter<LandAdapter.MyView> {
 
         TextView land_houseUserName, land_houseUserLocation, land_quinty, land_Price, land_per_unit_price, showAll_dataFlt;
         CircleImageView land_user_image;
+        ImageView landImage1;
 
         public MyView(@NonNull View itemView) {
             super(itemView);
@@ -89,6 +101,7 @@ public class LandAdapter extends RecyclerView.Adapter<LandAdapter.MyView> {
             land_per_unit_price = itemView.findViewById(R.id.land_per_unit_price);
             showAll_dataFlt = itemView.findViewById(R.id.showAll_dataFlt);
             land_user_image = itemView.findViewById(R.id.land_user_image);
+            landImage1 = itemView.findViewById(R.id.landImage1);
 
 
         }

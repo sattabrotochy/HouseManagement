@@ -66,6 +66,13 @@
                 android:layout_height="120dp"
                 android:orientation="horizontal">
 
+                <ImageView
+                    android:id="@+id/flat_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </ImageView>
+
             </LinearLayout>
 
             <LinearLayout

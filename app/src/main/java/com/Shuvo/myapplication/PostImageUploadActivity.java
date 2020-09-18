@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.Shuvo.myapplication.Class.RequestHandler;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
@@ -31,7 +32,8 @@ public class PostImageUploadActivity extends AppCompatActivity {
     private Button buttonUpload, select_picture;
     private Bitmap bitmap;
     private Uri filePath;
-    private String uid = "",url;
+    private String uid = "",url,imageName,cuurentUser;
+    FirebaseAuth auth;
     int id;
     String TAG="PostImageUploadActivity";
     private Bitmap originalImage;
@@ -57,7 +59,10 @@ public class PostImageUploadActivity extends AppCompatActivity {
 
 
         url=getIntent().getStringExtra("url");
+        imageName=getIntent().getStringExtra("name");
         id=getIntent().getExtras().getInt("id",0);
+        auth=FirebaseAuth.getInstance();
+        cuurentUser=auth.getCurrentUser().getUid();
 
 
         Log.d(TAG, "onCreate: " + url);
@@ -125,10 +130,9 @@ public class PostImageUploadActivity extends AppCompatActivity {
                 String uploadImage = getStringImage(bitmap);
 
                 HashMap<String, String> data = new HashMap<>();
-                data.put("pp", uploadImage);
+                data.put("pp",uploadImage);
                 data.put("id", String.valueOf(id));
                 String result = rh.sendPostRequest(url, data);
-
                 return result;
             }
         }

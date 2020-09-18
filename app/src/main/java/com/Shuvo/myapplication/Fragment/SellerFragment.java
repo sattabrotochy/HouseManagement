@@ -1,5 +1,6 @@
 package com.Shuvo.myapplication.Fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -21,10 +23,15 @@ import com.Shuvo.myapplication.Adapter.MyLandPostAdapter;
 import com.Shuvo.myapplication.Class.FlatFrontModel;
 import com.Shuvo.myapplication.Class.HuslndModelFront;
 import com.Shuvo.myapplication.Class.Landrnt;
+import com.Shuvo.myapplication.Class.MySingleton;
 import com.Shuvo.myapplication.Class.RequestHandler;
 import com.Shuvo.myapplication.Class.frontModel;
 import com.Shuvo.myapplication.HomeActivity;
 import com.Shuvo.myapplication.R;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -55,6 +62,8 @@ public class SellerFragment extends Fragment {
     MyHusLndAdpater myHusLndAdpater;
     public static ArrayList<HuslndModelFront> huslndModelFronts;
     RecyclerView myLandList, myHouseList, MyFlatList, myHouseLandList;
+    TextView Total_post_show;
+
 
     int count1;
 
@@ -70,6 +79,7 @@ public class SellerFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_saler, container, false);
         saler_Flt_Atn_btn = view.findViewById(R.id.saler_Flt_Atn_btn);
 
+        Total_post_show=view.findViewById(R.id.Total_post_show);
 
         myHouseList = view.findViewById(R.id.myHouseList);
         MyFlatList = view.findViewById(R.id.MyFlatList);
@@ -149,7 +159,8 @@ public class SellerFragment extends Fragment {
                         object.getString("houlan_qunty"),
                         object.getString("houLnd_Price"),
                         object.getString("house_floor"),
-                        object.getString("image")
+                        object.getString("image"),
+                        object.getString("husLnd_image")
                 ));
             }
 
@@ -211,6 +222,7 @@ public class SellerFragment extends Fragment {
                         object.getString("house_rnt_price"),
                         object.getString("house_room"),
                         object.getString("image"),
+                        object.getString("house_image"),
                         object.getInt("id")
                 ));
             }
@@ -283,7 +295,8 @@ public class SellerFragment extends Fragment {
                         object.getString("land_qty"),
                         object.getString("land_price"),
                         object.getString("active_ckeck"),
-                        object.getString("image")
+                        object.getString("image"),
+                        object.getString("landimage")
 
 
                 ));
@@ -360,7 +373,8 @@ public class SellerFragment extends Fragment {
                         object.getString("FlatBadRoom"),
                         object.getString("FlatPrice"),
                         object.getString("Active_Inactive"),
-                        object.getString("image")
+                        object.getString("image"),
+                        object.getString("flat_image")
 
 
 
@@ -387,6 +401,41 @@ public class SellerFragment extends Fragment {
         Intent intent = new Intent(getContext(), HomeActivity.class);
         startActivity(intent);
         Animatoo.animateSlideLeft(getContext());
+
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        totalPostLoad();
+
+    }
+
+    private void totalPostLoad() {
+
+
+        StringRequest request=new StringRequest(Request.Method.GET, "https://famousdb.000webhostapp.com/CuntUsrTotalPostCount.php?firebase_id="+currentUserID, new Response.Listener<String>() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onResponse(String response)
+            {
+
+                Total_post_show.setText("Total Post: "+response);
+
+            }
+        }, new Response.ErrorListener()
+        {
+            @Override
+            public void onErrorResponse(VolleyError error)
+            {
+
+
+                Toast.makeText(getContext(), error.getMessage().toString()+"", Toast.LENGTH_SHORT).show();
+            }
+        });
+        MySingleton.getInstance(getContext()).addToRequestQueue(request);
 
 
     }

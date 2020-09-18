@@ -4,9 +4,11 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +18,7 @@ import com.Shuvo.myapplication.Class.LandMrDtSWModel;
 import com.Shuvo.myapplication.Class.MySingleton;
 import com.Shuvo.myapplication.Class.RequestHandler;
 import com.Shuvo.myapplication.MainActivity;
+import com.Shuvo.myapplication.PostImageUploadActivity;
 import com.Shuvo.myapplication.R;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -42,12 +45,13 @@ public class EditFlatActivity extends AppCompatActivity {
     EditText flat_userAddressEdit, flat_phne_numberEdit, flat_userqntyEdit, flat_userPriceEdit, flat_user_per_Unit_priceEdit, flat_userMontlyPayDateEdit, flat_userLevDateEdit, flat_userAdnFeeEdit;
 
     TextView flat_userName;
-    String landPostEdit, currentUserID;
+    String landPostEdit, currentUserID,url,imageName,url3;
     FirebaseAuth auth;
     ArrayList<LandMrDtSWModel> mrDtSWModelArrayList;
-    Button flat_update_Btn;
+    Button flat_update_Btn,flat_image_Btn;
     CircleImageView flat_userImage;
     ProgressDialog progressDialog;
+    ImageView flat_postImage;
     private int id;
 
     @Override
@@ -65,9 +69,11 @@ public class EditFlatActivity extends AppCompatActivity {
 
         flat_userAddressEdit = findViewById(R.id.flat_floor_id);
         flat_userName = findViewById(R.id.flat_userName);
+        flat_postImage = findViewById(R.id.flat_postImage);
         flat_userqntyEdit = findViewById(R.id.flat_user_price);
         flat_phne_numberEdit = findViewById(R.id.flat_phne_numberEdit);
         flat_update_Btn = findViewById(R.id.flat_update_Btn);
+        flat_image_Btn = findViewById(R.id.flat_image_Btn);
 
         flat_userImage = findViewById(R.id.flat_userImage);
 
@@ -84,6 +90,19 @@ public class EditFlatActivity extends AppCompatActivity {
         });
 
 
+        url="https://famousdb.000webhostapp.com/flatimageUpload.php";
+        imageName="flatImage";
+
+        flat_image_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(EditFlatActivity.this, PostImageUploadActivity.class);
+                intent.putExtra("id",id);
+                intent.putExtra("url",url);
+                intent.putExtra("name",imageName);
+                startActivity(intent);
+            }
+        });
     }
 
     private void flatUserEdit() {
@@ -119,6 +138,7 @@ public class EditFlatActivity extends AppCompatActivity {
                 data.put("phn_number", phn_number);
                 data.put("floorId", floorId);
                 data.put("FlatPrice", FlatPrice);
+                data.put("flat_image", url3);
                 return data;
 
             }
@@ -209,7 +229,7 @@ public class EditFlatActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
+        postImageLoad();
 
         StringRequest request = new StringRequest(Request.Method.GET, "https://famousdb.000webhostapp.com/currentUserImage.php?firebase_id=" + currentUserID, new Response.Listener<String>() {
             @Override
@@ -234,4 +254,34 @@ public class EditFlatActivity extends AppCompatActivity {
         MySingleton.getInstance(this).addToRequestQueue(request);
 
     }
+
+    private void postImageLoad()
+    {
+        StringRequest request = new StringRequest(Request.Method.GET, "https://famousdb.000webhostapp.com/flatImageReterive.php?id=" + id, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+
+                String image2 = response;
+                Log.d(TAG, "onResponse: "+image2);
+                url3 = "https://famousdb.000webhostapp.com/" + image2;
+                Picasso.get()
+                        .load(url3)
+                        .into(flat_postImage);
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        MySingleton.getInstance(this).addToRequestQueue(request);
+
+
+
+    }
+
 }

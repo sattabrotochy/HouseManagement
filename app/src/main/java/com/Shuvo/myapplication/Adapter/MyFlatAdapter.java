@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,6 +65,7 @@ public class MyFlatAdapter extends RecyclerView.Adapter<MyFlatAdapter.MyView> {
         holder.Flat_houseUserPrice.setText(model.getFlatPrice());
         holder.Flat_houseUserFloor.setText(model.getFloorId());
         Picasso.get().load(model.getImage()).into(holder.ActiveProfileImage);
+        Picasso.get().load(model.getFlat_image()).into(holder.landImage);
 
 
 
@@ -162,6 +164,7 @@ public class MyFlatAdapter extends RecyclerView.Adapter<MyFlatAdapter.MyView> {
         TextView Flat_houseUserName, Flat_houseUserLocation, Flat_houseUserRoom, Flat_houseUserPrice, Flat_houseUserFloor, showAllData,act_intc_chk,act_chk,intcv_chk;
 
         CircleImageView ActiveProfileImage;
+        ImageView landImage;
 
         public MyView(@NonNull View itemView) {
             super(itemView);
@@ -176,6 +179,7 @@ public class MyFlatAdapter extends RecyclerView.Adapter<MyFlatAdapter.MyView> {
             act_chk = itemView.findViewById(R.id.act_chk);
             intcv_chk = itemView.findViewById(R.id.intcv_chk);
             ActiveProfileImage = itemView.findViewById(R.id.ActiveProfileImage);
+            landImage = itemView.findViewById(R.id.landImage);
         }
     }
 }

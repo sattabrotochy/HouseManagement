@@ -220,6 +220,7 @@ public class HouseWithLandFragment extends Fragment implements AdapterView.OnIte
                 params.put("houLan_taxClr", taxClrSpinnerType + "কয় বছরের কর পরিশোধ করেন নি");
                 params.put("houlan_parking", husLndParking + ",পার্কিং এর জন্য ব্যবস্থা আছে");
                 params.put("image", Imageurl);
+                params.put("$husLnd_image", " ");
 
 
                 return params;

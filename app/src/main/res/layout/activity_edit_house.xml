@@ -48,6 +48,7 @@
 
 
         <ImageView
+            android:id="@+id/image_house"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             tools:ignore="ContentDescription">
@@ -139,6 +140,23 @@
             android:textSize="18sp"
             android:text="Update"
             android:id="@+id/hus_post_update_Btn"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            tools:ignore="HardcodedText">
+
+
+
+        </Button>
+        <Button
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:background="@drawable/profile_btn_back"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:text="Image upload"
+            android:id="@+id/hus_image_update_Btn"
             android:layout_marginTop="20dp"
             android:layout_gravity="center_horizontal"
             android:layout_width="280dp"

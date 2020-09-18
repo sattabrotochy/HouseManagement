@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -52,6 +53,7 @@ public class HusLanFntAdapter extends RecyclerView.Adapter<HusLanFntAdapter.MyVi
         holder.Flat_houseUserPrice.setText(modelFront.getHouLnd_Price());
         holder.Flat_houseUserFloor.setText(modelFront.getHouse_floor());
         Picasso.get().load(modelFront.getImage()).into(holder.profImage);
+        Picasso.get().load(modelFront.getHusLnd_image()).into(holder.flat_image);
 
 
 
@@ -82,7 +84,7 @@ public class HusLanFntAdapter extends RecyclerView.Adapter<HusLanFntAdapter.MyVi
 
         CircleImageView profImage;
 
-
+        ImageView flat_image;
         public MyView(@NonNull View itemView) {
             super(itemView);
 
@@ -95,6 +97,7 @@ public class HusLanFntAdapter extends RecyclerView.Adapter<HusLanFntAdapter.MyVi
             Flat_houseUserFloor = itemView.findViewById(R.id.Flat_houseUserFloor);
             showAllData = itemView.findViewById(R.id.showAllData);
             profImage = itemView.findViewById(R.id.profImage);
+            flat_image = itemView.findViewById(R.id.flat_image);
         }
     }
 }

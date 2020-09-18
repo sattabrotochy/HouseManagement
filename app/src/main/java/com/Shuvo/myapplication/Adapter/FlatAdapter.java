@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,21 +53,35 @@ public class FlatAdapter extends RecyclerView.Adapter<FlatAdapter.ViewHolder> {
         holder.Flat_houseUserPrice.setText(model.getFlatPrice());
         holder.Flat_houseUserFloor.setText(model.getFloorId());
         Picasso.get().load(model.getImage()).into(holder.profImage);
+        Picasso.get().load(model.getFlat_image()).into(holder.flat_image);
 
 
 
-        holder.showAllData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        if (model.getActive_Inactive().equals(" Your post is active"))
+        {
+            holder.showAllData.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-                Intent intent = new Intent(context, FlatShowActivity.class);
-                intent.putExtra("id", idd);
-                Toast.makeText(context, idd+"", Toast.LENGTH_SHORT).show();
-                context.startActivity(intent);
+                    Intent intent = new Intent(context, FlatShowActivity.class);
+                    intent.putExtra("id", idd);
+                    Toast.makeText(context, idd+"", Toast.LENGTH_SHORT).show();
+                    context.startActivity(intent);
 
 
-            }
-        });
+                }
+            });
+
+        }
+        else
+        {
+          holder.showAllData.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View view) {
+                  Toast.makeText(context, "This post is inactive", Toast.LENGTH_SHORT).show();
+              }
+          });
+        }
 
 
     }
@@ -81,6 +96,7 @@ public class FlatAdapter extends RecyclerView.Adapter<FlatAdapter.ViewHolder> {
         TextView Flat_houseUserName, Flat_houseUserLocation, Flat_houseUserRoom, Flat_houseUserPrice, Flat_houseUserFloor, showAllData;
 
         CircleImageView profImage;
+        ImageView flat_image;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -91,6 +107,7 @@ public class FlatAdapter extends RecyclerView.Adapter<FlatAdapter.ViewHolder> {
             Flat_houseUserFloor = itemView.findViewById(R.id.Flat_houseUserFloor);
             showAllData = itemView.findViewById(R.id.showAllData);
             profImage = itemView.findViewById(R.id.profImage);
+            flat_image = itemView.findViewById(R.id.flat_image);
 
         }
     }

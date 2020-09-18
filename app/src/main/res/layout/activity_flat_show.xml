@@ -6,12 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".ShowActivity.FlatShowActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/flat_list_show"
+
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
 
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="ScrollViewSize">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/flat_list_show"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
 
 </RelativeLayout>

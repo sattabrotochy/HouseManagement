@@ -4,12 +4,12 @@ public class Landrnt {
 
 
     int id;
-    String name, address, per_qty_price, land_qty, land_price,active_ckeck,image;
+    String name, address, per_qty_price, land_qty, land_price,active_ckeck,image,landimage;
 
     public Landrnt() {
     }
 
-    public Landrnt(int id, String name, String address, String per_qty_price, String land_qty, String land_price, String active_ckeck, String image) {
+    public Landrnt(int id, String name, String address, String per_qty_price, String land_qty, String land_price, String active_ckeck, String image, String landimage) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -18,6 +18,7 @@ public class Landrnt {
         this.land_price = land_price;
         this.active_ckeck = active_ckeck;
         this.image = image;
+        this.landimage = landimage;
     }
 
     public int getId() {
@@ -82,5 +83,13 @@ public class Landrnt {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getLandimage() {
+        return landimage;
+    }
+
+    public void setLandimage(String landimage) {
+        this.landimage = landimage;
     }
 }

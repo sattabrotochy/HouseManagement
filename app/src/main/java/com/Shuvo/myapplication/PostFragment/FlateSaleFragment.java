@@ -90,9 +90,12 @@ public class FlateSaleFragment extends Fragment {
                 switch (i) {
                     case R.id.flat_lift_No_Radio_button:
                         parkingYesNo = flat_No_Radio_button.getText().toString();
+                        Toast.makeText(getContext(), parkingYesNo.toString(), Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, "onCheckedChanged222: "+parkingYesNo);
                         break;
                     case R.id.flat_lift_Yes_Radio_button:
                         parkingYesNo = flat_Yes_Radio_button.getText().toString();
+                        Toast.makeText(getContext(), parkingYesNo.toString(), Toast.LENGTH_SHORT).show();
                     default:
                         break;
                 }
@@ -188,6 +191,7 @@ public class FlateSaleFragment extends Fragment {
                 params.put("parkingYesNo", parkingYesNo + "পার্কিং এর জন্য ব্যবস্থা আছে");
                 params.put("Active_Inactive", activeInactive);
                 params.put("image", Imageurl);
+                params.put("$flat_image", " ");
                 return params;
             }
         };

@@ -13,6 +13,7 @@
 
 
         <TextView
+            android:id="@+id/Total_post_show"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="5dp"
@@ -22,7 +23,7 @@
             android:background="@drawable/main_btn_back"
             android:gravity="center"
             android:padding="5dp"
-            android:text="Total Post: 2 "
+
             android:textAlignment="center"
             android:textColor="#000"
             android:textSize="13sp"

@@ -60,7 +60,7 @@ public class EditlandPostActivity extends AppCompatActivity {
     CircleImageView landEd_userImage;
     ProgressDialog progressbar2;
     ImageView postImage;
-    String url;
+    String url,url2,url3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +99,7 @@ public class EditlandPostActivity extends AppCompatActivity {
 
 
         url="https://famousdb.000webhostapp.com/LandImageUpload.php";
+        final String imageName="landImage";
 
         land_Image_update_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,6 +108,7 @@ public class EditlandPostActivity extends AppCompatActivity {
                 Intent intent=new Intent(EditlandPostActivity.this, PostImageUploadActivity.class);
                 intent.putExtra("url",url);
                 intent.putExtra("id",id);
+                intent.putExtra("name",imageName);
                 startActivity(intent);
 
             }
@@ -160,6 +162,7 @@ public class EditlandPostActivity extends AppCompatActivity {
                 params.put("land_py_Date", land_py_Date);
                 params.put("mini_leave_date", mini_leave_date);
                 params.put("mini_adv_date", mini_adv_date);
+                params.put("landimage", url3);
 
 
                 return params;
@@ -263,9 +266,9 @@ public class EditlandPostActivity extends AppCompatActivity {
 
 
                 String image = response;
-                String url = "https://famousdb.000webhostapp.com/" + image;
+                 url2 = "https://famousdb.000webhostapp.com/" + image;
                 Picasso.get()
-                        .load(url)
+                        .load(url2)
                         .into(landEd_userImage);
 
 
@@ -284,30 +287,30 @@ public class EditlandPostActivity extends AppCompatActivity {
 
     private void postImageLoad()
     {
-//        StringRequest request = new StringRequest(Request.Method.GET, "https://famousdb.000webhostapp.com/showlandPostMoreDetails.php?id=" + id, new Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//
-//
-//                String image2 = response;
-//                Log.d(TAG, "onResponse: "+image2);
-//                String url = "https://famousdb.000webhostapp.com/" + image2;
-//                Picasso.get()
-//                        .load(url)
-//                        .into(postImage);
-//
-//
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//
-//            }
-//        });
-//
-//        MySingleton.getInstance(this).addToRequestQueue(request);
-//
-//
+        StringRequest request = new StringRequest(Request.Method.GET, "https://famousdb.000webhostapp.com/landImageRtrieve.php?id=" + id, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+
+                String image2 = response;
+                Log.d(TAG, "onResponse: "+image2);
+                 url3 = "https://famousdb.000webhostapp.com/" + image2;
+                Picasso.get()
+                        .load(url3)
+                        .into(postImage);
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        MySingleton.getInstance(this).addToRequestQueue(request);
+
+
 
     }
 

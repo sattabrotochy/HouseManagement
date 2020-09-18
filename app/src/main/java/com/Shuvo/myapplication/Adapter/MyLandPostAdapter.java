@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -70,7 +71,11 @@ public class MyLandPostAdapter extends RecyclerView.Adapter<MyLandPostAdapter.My
         holder.address.setText(model.getAddress());
         holder.per_qty_price.setText(model.getPer_qty_price());
         holder.land_price.setText(model.getLand_price());
+
         Picasso.get().load(model.getImage()).into(holder.userActiveProfileImage);
+        Picasso.get().load(model.getLandimage()).into(holder.landImage);
+
+
 
         if (model.getActive_ckeck().equals(" Your post is active")) {
             holder.act_chk.setVisibility(View.VISIBLE);
@@ -166,6 +171,7 @@ public class MyLandPostAdapter extends RecyclerView.Adapter<MyLandPostAdapter.My
         TextView name, address, land_qunty, land_price, per_qty_price, act_intc_chk,act_chk,intcv_chk;
 
         CircleImageView userActiveProfileImage;
+        ImageView landImage;
 
         public MyView(@NonNull View itemView) {
             super(itemView);
@@ -179,6 +185,7 @@ public class MyLandPostAdapter extends RecyclerView.Adapter<MyLandPostAdapter.My
             act_chk = itemView.findViewById(R.id.act_chk);
             intcv_chk = itemView.findViewById(R.id.intcv_chk);
             userActiveProfileImage = itemView.findViewById(R.id.ActiveProfileImage);
+            landImage = itemView.findViewById(R.id.landImage);
 
         }
     }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +47,7 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.ViewHolder> 
         holder.houseUserFloor.setText(model.getHouse_floor());
         holder.houseUserRoom.setText(model.getHouse_room());
         Picasso.get().load(model.getImage()).into(holder.houseImage_user);
+        Picasso.get().load(model.getHouse_image()).into(holder.image_house);
 
 
         holder.houseMoreSHow.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +73,7 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.ViewHolder> 
         TextView houseUserName, houseUserLocation, houseUserRoom, houseUserPrice, houseUserFloor,houseMoreSHow;
 
         CircleImageView houseImage_user;
+        ImageView image_house;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -82,6 +85,7 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.ViewHolder> 
             houseUserFloor = itemView.findViewById(R.id.houseUserFloor);
             houseMoreSHow = itemView.findViewById(R.id.houseMoreSHow);
             houseImage_user=itemView.findViewById(R.id.houseImage_user);
+            image_house=itemView.findViewById(R.id.image_house);
 
 
         }

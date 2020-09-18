@@ -66,7 +66,7 @@ public class HouseRentFragment extends Fragment implements AdapterView.OnItemSel
     ImageView HouseRentImageType, HouseRentImageType1, HouseRentImageType2, HouseRentImageType3;
 
     String name="", location="", floorNumberHouse = "", housePrice="", houseRoom="", houseBathRoom="", gasBil="",Imageurl;
-    Button videoUpload, houseRentPost, house_rent_image;
+    Button houseRentPost;
     Uri videoUri;
 
 
@@ -114,7 +114,6 @@ public class HouseRentFragment extends Fragment implements AdapterView.OnItemSel
 
 
         //button
-//        videoUpload = view.findViewById(R.id.videoUpload);
         houseRentPost = view.findViewById(R.id.houseRentTypePost);
 
 
@@ -222,15 +221,6 @@ public class HouseRentFragment extends Fragment implements AdapterView.OnItemSel
 
                 startActivity(new Intent(getActivity(), MainActivity.class));
                 getActivity().finish();
-
-            }
-        });
-
-
-        house_rent_image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
 
             }
         });
@@ -394,11 +384,12 @@ public class HouseRentFragment extends Fragment implements AdapterView.OnItemSel
                 data.put("house_bathrm", houseBathRoom+"টি বাথরুম");
                 data.put("house_rnt_date", monthlyPaymentType+"ভাড়া দিতে হবে");
                 data.put("house_lv_date", minimumTimeSpendType+"পর্যন্ত থাকতে হবে ");
-                   data.put("house_gs_type", gasSystemType+"");
+                data.put("house_gs_type", gasSystemType+"");
                 data.put("house_advc_fee", advanceFeeHouseStringSpinner+"অগ্রিম ভাড়া দিতে হবে");
                 data.put("house_parking", parking);
                 data.put("house_lift", lift);
                 data.put("image", Imageurl);
+               // data.put("$house_image", " ");
 
 
                 return data;

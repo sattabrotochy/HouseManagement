@@ -36,6 +36,8 @@
         </TextView>
     </LinearLayout>
 
+
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_margin="5dp"
@@ -45,6 +47,7 @@
 
 
         <ImageView
+            android:id="@+id/flat_postImage"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             tools:ignore="ContentDescription">
@@ -110,6 +113,23 @@
             android:layout_height="50dp"
             tools:ignore="HardcodedText">
 
+
+
+        </Button>
+
+        <Button
+            android:id="@+id/flat_image_Btn"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/profile_btn_back"
+            android:text="flat image upload"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText">
 
 
         </Button>

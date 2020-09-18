@@ -52,7 +52,7 @@ public class FlatmrDtsAdapter extends RecyclerView.Adapter<FlatmrDtsAdapter.MyVi
         holder.FlatPrice.setText(model.getFlatPrice());
         holder.parkingYesNo.setText(model.getParkingYesNo());
         holder.Active_Inactive.setText(model.getActive_Inactive());
-        holder.image.setText(model.getImage());
+       // holder.image.setText(model.getImage());
         Picasso.get().load(model.getImage()).into(holder.flat_u_prf);
 
 

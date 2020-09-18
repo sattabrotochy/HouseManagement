@@ -4,19 +4,21 @@ public class FlatBuyerModel {
 
 
     int id;
-    String name, address, floorId, FlatBadRoom, FlatPrice,image;
+    String name, address, floorId, FlatBadRoom, FlatPrice,Active_Inactive,image,flat_image;
 
     public FlatBuyerModel() {
     }
 
-    public FlatBuyerModel(int id, String name, String address, String floorId, String flatBadRoom, String flatPrice, String image) {
+    public FlatBuyerModel(int id, String name, String address, String floorId, String flatBadRoom, String flatPrice, String active_Inactive, String image, String flat_image) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.floorId = floorId;
         FlatBadRoom = flatBadRoom;
         FlatPrice = flatPrice;
+        Active_Inactive = active_Inactive;
         this.image = image;
+        this.flat_image = flat_image;
     }
 
     public int getId() {
@@ -67,11 +69,27 @@ public class FlatBuyerModel {
         FlatPrice = flatPrice;
     }
 
+    public String getActive_Inactive() {
+        return Active_Inactive;
+    }
+
+    public void setActive_Inactive(String active_Inactive) {
+        Active_Inactive = active_Inactive;
+    }
+
     public String getImage() {
         return image;
     }
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getFlat_image() {
+        return flat_image;
+    }
+
+    public void setFlat_image(String flat_image) {
+        this.flat_image = flat_image;
     }
 }

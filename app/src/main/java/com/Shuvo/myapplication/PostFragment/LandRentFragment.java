@@ -214,6 +214,7 @@ public class LandRentFragment extends Fragment {
                 params.put("mini_adv_date", "সর্বনিম্ন " + advanceFeeType + "মাসের অগ্রিম ভাড়া দিতে হবে");
                 params.put("active_ckeck", activeInactivesystem);
                 params.put("image", Imageurl);
+                params.put("$landimage", " ");
                 return params;
             }
         };

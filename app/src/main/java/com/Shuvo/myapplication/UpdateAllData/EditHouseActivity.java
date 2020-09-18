@@ -4,9 +4,11 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.Shuvo.myapplication.Class.MySingleton;
 import com.Shuvo.myapplication.Class.RequestHandler;
 import com.Shuvo.myapplication.MainActivity;
+import com.Shuvo.myapplication.PostImageUploadActivity;
 import com.Shuvo.myapplication.R;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -42,8 +45,10 @@ public class EditHouseActivity extends AppCompatActivity {
     CircleImageView house_image;
     TextView Hus_userName1;
     EditText hus_number, hus_userPrice, hus_userFloor, hus_userRoom, hus_userBathRoom;
-    Button hus_post_update_Btn;
+    Button hus_post_update_Btn,hus_image_update_Btn;
+    String url,url3;
     ProgressDialog progressDialog;
+    ImageView image_house;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,10 +71,32 @@ public class EditHouseActivity extends AppCompatActivity {
         hus_userRoom = findViewById(R.id.hus_userRoom);
         hus_userBathRoom = findViewById(R.id.hus_userBathRoom);
         hus_post_update_Btn = findViewById(R.id.hus_post_update_Btn);
+        hus_image_update_Btn = findViewById(R.id.hus_image_update_Btn);
+        image_house = findViewById(R.id.image_house);
+
+
+
         hus_post_update_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Dataupdate();
+
+            }
+        });
+
+
+        url="https://famousdb.000webhostapp.com/houseImageUpload.php";
+
+        hus_image_update_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+
+                Intent intent =new Intent(EditHouseActivity.this, PostImageUploadActivity.class);
+                intent.putExtra("url",url);
+                intent.putExtra("id",id);
+                startActivity(intent);
+
 
             }
         });
@@ -120,6 +147,7 @@ public class EditHouseActivity extends AppCompatActivity {
                 data.put("house_floor",house_floor);
                 data.put("house_room",house_room);
                 data.put("house_bathrm",house_bathrm);
+                data.put("$house_image",url3);
 
                 return data;
 
@@ -213,18 +241,17 @@ public class EditHouseActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
+        postImageLoad();
         StringRequest request = new StringRequest(Request.Method.GET, "https://famousdb.000webhostapp.com/currentUserImage.php?firebase_id=" + currentUserID, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
 
-                String  image = response;
+                String image = response;
                 String url = "https://famousdb.000webhostapp.com/" + image;
                 Picasso.get()
                         .load(url)
                         .into(house_image);
-
 
 
             }
@@ -238,4 +265,33 @@ public class EditHouseActivity extends AppCompatActivity {
         MySingleton.getInstance(this).addToRequestQueue(request);
 
     }
-}
+        private void postImageLoad()
+        {
+            StringRequest request = new StringRequest(Request.Method.GET, "https://famousdb.000webhostapp.com/houseImageReitrieve.php?id=" + id, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+
+
+                    String image2 = response;
+                    url3 = "https://famousdb.000webhostapp.com/" + image2;
+                    Picasso.get()
+                            .load(url3)
+                            .into(image_house);
+
+
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+
+                }
+            });
+
+            MySingleton.getInstance(this).addToRequestQueue(request);
+
+
+
+        }
+
+
+    }
