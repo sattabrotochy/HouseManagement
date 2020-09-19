@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -62,6 +63,8 @@ public class HusLndMDApdapter  extends RecyclerView.Adapter<HusLndMDApdapter.MyV
         holder.houlan_parking.setText(model.getHoulan_parking());
         holder.active_inactive.setText(model.getActive_inactive());
         Picasso.get().load(model.getImage()).into(holder.House_userImage);
+        Picasso.get().load(model.getHusLnd_image()).into(holder.house_image3);
+
         holder.husLand_User_call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,6 +90,7 @@ public class HusLndMDApdapter  extends RecyclerView.Adapter<HusLndMDApdapter.MyV
 
 
         CircleImageView husLand_User_call,House_userImage;
+        ImageView house_image3;
 
         public MyView(@NonNull View itemView) {
             super(itemView);
@@ -106,6 +110,7 @@ public class HusLndMDApdapter  extends RecyclerView.Adapter<HusLndMDApdapter.MyV
             houlan_parking=itemView.findViewById(R.id.houlan_parking);
             active_inactive=itemView.findViewById(R.id.active_inactive);
             House_userImage=itemView.findViewById(R.id.House_userImage);
+            house_image3=itemView.findViewById(R.id.house_image3);
 
 
         }

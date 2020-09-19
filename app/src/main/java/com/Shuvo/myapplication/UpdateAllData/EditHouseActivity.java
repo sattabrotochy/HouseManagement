@@ -147,7 +147,7 @@ public class EditHouseActivity extends AppCompatActivity {
                 data.put("house_floor",house_floor);
                 data.put("house_room",house_room);
                 data.put("house_bathrm",house_bathrm);
-                data.put("$house_image",url3);
+                data.put("house_image",url3);
 
                 return data;
 

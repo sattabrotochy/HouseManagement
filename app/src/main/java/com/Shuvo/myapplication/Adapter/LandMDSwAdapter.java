@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -57,6 +58,7 @@ public class LandMDSwAdapter extends RecyclerView.Adapter<LandMDSwAdapter.MyView
         holder.land_userLevDate.setText(model.getMini_leave_date());
         holder.land_userAdnFee.setText(model.getMini_adv_date());
         Picasso.get().load(model.getImage()).into(holder.lanmageProd);
+        Picasso.get().load(model.getLandimage()).into(holder.land_image);
 
 
 
@@ -83,6 +85,7 @@ public class LandMDSwAdapter extends RecyclerView.Adapter<LandMDSwAdapter.MyView
         TextView Land_userName, land_userAddress, land_userqnty,phn_number ,land_userPrice, land_user_per_Unit_price, land_userMontlyPayDate, land_userLevDate, land_userAdnFee;
 
         CircleImageView call_user,lanmageProd;
+        ImageView land_image;
         public MyView(@NonNull View itemView) {
             super(itemView);
 
@@ -99,6 +102,7 @@ public class LandMDSwAdapter extends RecyclerView.Adapter<LandMDSwAdapter.MyView
             land_userLevDate = itemView.findViewById(R.id.land_userLevDate1);
             land_userAdnFee = itemView.findViewById(R.id.land_userAdnFee1);
             lanmageProd = itemView.findViewById(R.id.lanmageProd);
+            land_image = itemView.findViewById(R.id.land_image);
         }
     }
 }

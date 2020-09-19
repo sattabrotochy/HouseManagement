@@ -85,7 +85,7 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.ViewHolder> 
             houseUserFloor = itemView.findViewById(R.id.houseUserFloor);
             houseMoreSHow = itemView.findViewById(R.id.houseMoreSHow);
             houseImage_user=itemView.findViewById(R.id.houseImage_user);
-            image_house=itemView.findViewById(R.id.image_house);
+            image_house=itemView.findViewById(R.id.image_house2);
 
 
         }

@@ -389,7 +389,7 @@ public class HouseRentFragment extends Fragment implements AdapterView.OnItemSel
                 data.put("house_parking", parking);
                 data.put("house_lift", lift);
                 data.put("image", Imageurl);
-               // data.put("$house_image", " ");
+                data.put("house_image", " ");
 
 
                 return data;

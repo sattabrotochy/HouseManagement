@@ -107,7 +107,8 @@ public class FlatShowActivity extends AppCompatActivity {
                         object.getString("FlatPrice"),
                         object.getString("parkingYesNo"),
                         object.getString("Active_Inactive"),
-                        object.getString("image")
+                        object.getString("image"),
+                        object.getString("flat_image")
 
 
                 ));

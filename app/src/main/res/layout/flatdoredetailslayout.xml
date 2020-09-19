@@ -37,6 +37,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_below="@id/liner1"
         android:orientation="vertical"
         android:layout_margin="5dp"
         android:layout_width="match_parent"
@@ -48,6 +49,7 @@
 
         <ImageView
 
+            android:id="@+id/flat_image1"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             tools:ignore="ContentDescription">

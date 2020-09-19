@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -61,6 +62,7 @@ public class                                                                    
         holder.house_lift.setText(mdModel.getHouse_lift());
 
         Picasso.get().load(mdModel.getImage()).into(holder.House_userImage);
+        Picasso.get().load(mdModel.getHouse_image()).into(holder.house_image5);
 
         holder.house_call.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +90,7 @@ public class                                                                    
 
         CircleImageView House_userImage;
         CircleImageView house_call;
+        ImageView house_image5;
         public Myview(@NonNull View itemView) {
             super(itemView);
 
@@ -109,6 +112,7 @@ public class                                                                    
             house_parking=itemView.findViewById(R.id.house_parking);
             house_lift=itemView.findViewById(R.id.house_lift);
             House_userImage=itemView.findViewById(R.id.House_userImage);
+            house_image5=itemView.findViewById(R.id.house_image5);
 
 
 

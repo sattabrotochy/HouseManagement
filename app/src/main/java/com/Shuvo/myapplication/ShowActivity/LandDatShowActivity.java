@@ -129,7 +129,8 @@ public class LandDatShowActivity extends AppCompatActivity {
                         object.getString("land_py_Date"),
                         object.getString("mini_leave_date"),
                         object.getString("mini_adv_date"),
-                        object.getString("image")
+                        object.getString("image"),
+                        object.getString("landimage")
 
 
 

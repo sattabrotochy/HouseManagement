@@ -3,8 +3,9 @@ package com.Shuvo.myapplication.Class;
 public class frontModel {
 
     String   name, location, house_floor, house_rnt_price, house_room, Image,house_image;
-
     int id;
+
+
     public frontModel() {
     }
 

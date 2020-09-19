@@ -53,7 +53,7 @@
 
 
             <ImageView
-                android:id="@+id/house_image"
+                android:id="@+id/house_image3"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 tools:ignore="ContentDescription">

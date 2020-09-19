@@ -45,6 +45,7 @@
 
 
         <ImageView
+            android:id="@+id/land_image"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             tools:ignore="ContentDescription">

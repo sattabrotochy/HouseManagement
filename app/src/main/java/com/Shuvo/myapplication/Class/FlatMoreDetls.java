@@ -2,12 +2,12 @@ package com.Shuvo.myapplication.Class;
 
 public class FlatMoreDetls {
 
-    String name,phn_number,address, floorId, FlatBadRoom, FlatBathroom, FlatQunty, FlatPrice, parkingYesNo, Active_Inactive, image;
+    String name,phn_number,address, floorId, FlatBadRoom, FlatBathroom, FlatQunty, FlatPrice, parkingYesNo, Active_Inactive, image,flat_image;
 
     public FlatMoreDetls() {
     }
 
-    public FlatMoreDetls(String name, String phn_number, String address, String floorId, String flatBadRoom, String flatBathroom, String flatQunty, String flatPrice, String parkingYesNo, String active_Inactive, String image) {
+    public FlatMoreDetls(String name, String phn_number, String address, String floorId, String flatBadRoom, String flatBathroom, String flatQunty, String flatPrice, String parkingYesNo, String active_Inactive, String image, String flat_image) {
         this.name = name;
         this.phn_number = phn_number;
         this.address = address;
@@ -19,6 +19,7 @@ public class FlatMoreDetls {
         this.parkingYesNo = parkingYesNo;
         Active_Inactive = active_Inactive;
         this.image = image;
+        this.flat_image = flat_image;
     }
 
     public String getName() {
@@ -107,5 +108,13 @@ public class FlatMoreDetls {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getFlat_image() {
+        return flat_image;
+    }
+
+    public void setFlat_image(String flat_image) {
+        this.flat_image = flat_image;
     }
 }

@@ -114,7 +114,8 @@ public class HouseMoreDtlActivity extends AppCompatActivity {
                         object.getString("house_advc_fee"),
                         object.getString("house_parking"),
                         object.getString("house_lift"),
-                        object.getString("image")
+                        object.getString("image"),
+                        object.getString("house_image")
 
 
                 ));

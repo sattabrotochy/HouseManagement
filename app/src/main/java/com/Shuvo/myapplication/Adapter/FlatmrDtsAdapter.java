@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -54,6 +55,7 @@ public class FlatmrDtsAdapter extends RecyclerView.Adapter<FlatmrDtsAdapter.MyVi
         holder.Active_Inactive.setText(model.getActive_Inactive());
        // holder.image.setText(model.getImage());
         Picasso.get().load(model.getImage()).into(holder.flat_u_prf);
+        Picasso.get().load(model.getFlat_image()).into(holder.flat_image1);
 
 
         holder.flat_call_user.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +81,7 @@ public class FlatmrDtsAdapter extends RecyclerView.Adapter<FlatmrDtsAdapter.MyVi
 
         CircleImageView flat_call_user,flat_u_prf;
 
+        ImageView flat_image1;
         public MyView(@NonNull View itemView) {
             super(itemView);
 
@@ -96,6 +99,7 @@ public class FlatmrDtsAdapter extends RecyclerView.Adapter<FlatmrDtsAdapter.MyVi
             Active_Inactive = itemView.findViewById(R.id.flat_activity);
             image = itemView.findViewById(R.id.image);
             flat_u_prf = itemView.findViewById(R.id.flat_u_prf);
+            flat_image1 = itemView.findViewById(R.id.flat_image1);
 
 
 

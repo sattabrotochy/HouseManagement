@@ -5,7 +5,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +31,7 @@ import com.Shuvo.myapplication.Class.MySingleton;
 import com.Shuvo.myapplication.Class.RequestHandler;
 import com.Shuvo.myapplication.Class.frontModel;
 import com.Shuvo.myapplication.R;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -343,23 +343,28 @@ public class BuyerFragment extends Fragment {
             protected void onPreExecute() {
                 super.onPreExecute();
                 // progressbar2.setVisibility(View.VISIBLE);
+
             }
 
             @Override
             protected void onPostExecute(String sh) {
                 super.onPostExecute(sh);
                 LAND_STRING = sh;
-                //  progressbar2.setVisibility(View.INVISIBLE);
-                // Toast.makeText(getContext(), JSON_STRING_CAT, Toast.LENGTH_SHORT).show();
                 landDataList();
+
             }
 
             @Override
             protected String doInBackground(Void... params) {
 
                 RequestHandler handler2 = new RequestHandler();
+
+
+
                 String sh = handler2.sendGetRequest("https://famousdb.000webhostapp.com/retrieve.php");
                 return sh;
+
+
             }
         }
         GetJSON gjd = new GetJSON();
@@ -367,9 +372,12 @@ public class BuyerFragment extends Fragment {
     }
 
     private void landDataList() {
+
+
         try {
             JSONObject jsonObject = new JSONObject(LAND_STRING);
             JSONArray result = jsonObject.getJSONArray("result");
+
 
             for (int i = 0; i < result.length(); i++) {
                 JSONObject object = result.getJSONObject(i);
@@ -383,7 +391,9 @@ public class BuyerFragment extends Fragment {
                         object.getString("active_ckeck"),
                         object.getString("image"),
                         object.getString("landimage")
+
                 ));
+
             }
             adapter = new LandAdapter(getContext(), landrntList);
             layoutManager = new LinearLayoutManager(getContext());
@@ -395,6 +405,7 @@ public class BuyerFragment extends Fragment {
             e.printStackTrace();
             Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
         }
+
 
 
     }
