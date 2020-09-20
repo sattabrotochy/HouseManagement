@@ -69,7 +69,7 @@ public class MyHouseAdapter extends RecyclerView.Adapter<MyHouseAdapter.MYView> 
         Picasso.get().load(model.getHouse_image()).into(holder.landImage);
 
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemShow_data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
@@ -150,7 +150,7 @@ public class MyHouseAdapter extends RecyclerView.Adapter<MyHouseAdapter.MYView> 
 
         TextView houseUserName, houseUserLocation, houseUserRoom, houseUserPrice, houseUserFloor;
         CircleImageView ActiveProfileImage;
-        ImageView landImage;
+        ImageView landImage,itemShow_data;
 
         public MYView(@NonNull View itemView) {
             super(itemView);
@@ -162,6 +162,7 @@ public class MyHouseAdapter extends RecyclerView.Adapter<MyHouseAdapter.MYView> 
             houseUserFloor = itemView.findViewById(R.id.land_qunty);
             ActiveProfileImage = itemView.findViewById(R.id.ActiveProfileImage);
             landImage = itemView.findViewById(R.id.landImage);
+            itemShow_data = itemView.findViewById(R.id.itemShow_data);
         }
     }
 }

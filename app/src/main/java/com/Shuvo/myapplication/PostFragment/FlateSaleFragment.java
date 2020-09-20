@@ -83,19 +83,21 @@ public class FlateSaleFragment extends Fragment {
         //radio button
         flat_No_Radio_button = view.findViewById(R.id.flat_lift_No_Radio_button);
         flat_Yes_Radio_button = view.findViewById(R.id.flat_lift_Yes_Radio_button);
+        parking_Flat_No_Radio_button=view.findViewById(R.id.parking_Flat_No_Radio_button);
+        parking_Flat_Yes_Radio_button=view.findViewById(R.id.parking_Flat_Yes_Radio_button);
+
+
 
         flat_parking_groupButton.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 switch (i) {
-                    case R.id.flat_lift_No_Radio_button:
-                        parkingYesNo = flat_No_Radio_button.getText().toString();
-                        Toast.makeText(getContext(), parkingYesNo.toString(), Toast.LENGTH_SHORT).show();
-                        Log.d(TAG, "onCheckedChanged222: "+parkingYesNo);
+                    case R.id.parking_Flat_No_Radio_button:
+                        parkingYesNo = parking_Flat_No_Radio_button.getText().toString();
+
                         break;
-                    case R.id.flat_lift_Yes_Radio_button:
-                        parkingYesNo = flat_Yes_Radio_button.getText().toString();
-                        Toast.makeText(getContext(), parkingYesNo.toString(), Toast.LENGTH_SHORT).show();
+                    case R.id.parking_Flat_Yes_Radio_button:
+                        parkingYesNo = parking_Flat_Yes_Radio_button.getText().toString();
                     default:
                         break;
                 }
@@ -141,13 +143,13 @@ public class FlateSaleFragment extends Fragment {
 
         if (address.isEmpty() || floorId.isEmpty() || FlatBadRoom.isEmpty() || FlatBathroom.isEmpty() || FlatQunty.isEmpty() || FlatPrice.isEmpty()) {
 
-            activeInactive = "Your post is Inactive";
+            activeInactive = "inactive";
             DataSaveToServer();
             Toast.makeText(getContext(), activeInactive, Toast.LENGTH_SHORT).show();
 
 
         } else {
-            activeInactive = " Your post is active";
+            activeInactive = "active";
             Toast.makeText(getContext(), activeInactive, Toast.LENGTH_SHORT).show();
             DataSaveToServer();
         }
@@ -178,6 +180,7 @@ public class FlateSaleFragment extends Fragment {
         ) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
+                String image=" ";
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("firebase_id", currentUserID);
                 params.put("name", name);
@@ -191,7 +194,7 @@ public class FlateSaleFragment extends Fragment {
                 params.put("parkingYesNo", parkingYesNo + "পার্কিং এর জন্য ব্যবস্থা আছে");
                 params.put("Active_Inactive", activeInactive);
                 params.put("image", Imageurl);
-                params.put("$flat_image", " ");
+                params.put("flat_image", image);
                 return params;
             }
         };

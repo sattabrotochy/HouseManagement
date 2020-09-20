@@ -169,14 +169,14 @@ public class HouseWithLandFragment extends Fragment implements AdapterView.OnIte
         houLndPrice = houLnd_Price.getText().toString();
 
 
-        if (address.isEmpty() || houLndFloor.isEmpty() || houLand_qnty.isEmpty() || houLndPrice.isEmpty() || taxClrSpinnerType.isEmpty() ||
+        if (address.isEmpty() || houLndFloor.isEmpty() || houLand_qnty.isEmpty() || houLndPrice.isEmpty() ||
                 houseWithLandType.isEmpty() || husLndParking.isEmpty()) {
-            activeInactive = " Your post is Inactive ";
+            activeInactive = "inactive ";
             Toast.makeText(getContext(), activeInactive, Toast.LENGTH_SHORT).show();
             HouseLandPostSave();
 
         } else {
-            activeInactive = " Your post is active ";
+            activeInactive = "active ";
             Toast.makeText(getContext(), activeInactive, Toast.LENGTH_SHORT).show();
             HouseLandPostSave();
         }
@@ -207,6 +207,7 @@ public class HouseWithLandFragment extends Fragment implements AdapterView.OnIte
         ) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
+                String image=" ";
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("firebase_id", currentUserId);
                 params.put("name", name);
@@ -217,10 +218,10 @@ public class HouseWithLandFragment extends Fragment implements AdapterView.OnIte
                 params.put("houlan_qunty", " বাসাটি সর্বমোট" + houLand_qnty + "বর্গ ফিট");
                 params.put("houLnd_Price", " বাসাটি " + houLndPrice + "টাকায় বিক্রি হবে");
                 params.put("houlan_document", yes_no_tex_clr_output + ",এই জায়গায় সব টেক্স পরিশোধ করা  হইছে");
-                params.put("houLan_taxClr", taxClrSpinnerType + "কয় বছরের কর পরিশোধ করেন নি");
+                params.put("houLan_taxClr", taxClrSpinnerType + "  কর পরিশোধ করেন নি");
                 params.put("houlan_parking", husLndParking + ",পার্কিং এর জন্য ব্যবস্থা আছে");
                 params.put("image", Imageurl);
-                params.put("$husLnd_image", " ");
+                params.put("husLnd_image",image );
 
 
                 return params;

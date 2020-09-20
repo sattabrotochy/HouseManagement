@@ -77,9 +77,9 @@ public class MyLandPostAdapter extends RecyclerView.Adapter<MyLandPostAdapter.My
 
 
 
-        if (model.getActive_ckeck().equals(" Your post is active")) {
+        if (model.getActive_ckeck().equals("active")) {
             holder.act_chk.setVisibility(View.VISIBLE);
-        } else if (model.getActive_ckeck().equals(" Your post is Inactive ")) {
+        } else if (model.getActive_ckeck().equals("inactive")) {
             holder.intcv_chk.setVisibility(View.VISIBLE);
         }
 
@@ -87,7 +87,7 @@ public class MyLandPostAdapter extends RecyclerView.Adapter<MyLandPostAdapter.My
 
         final String data = "data";
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemShow_data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
@@ -171,7 +171,7 @@ public class MyLandPostAdapter extends RecyclerView.Adapter<MyLandPostAdapter.My
         TextView name, address, land_qunty, land_price, per_qty_price, act_intc_chk,act_chk,intcv_chk;
 
         CircleImageView userActiveProfileImage;
-        ImageView landImage;
+        ImageView landImage,itemShow_data;
 
         public MyView(@NonNull View itemView) {
             super(itemView);
@@ -186,6 +186,7 @@ public class MyLandPostAdapter extends RecyclerView.Adapter<MyLandPostAdapter.My
             intcv_chk = itemView.findViewById(R.id.intcv_chk);
             userActiveProfileImage = itemView.findViewById(R.id.ActiveProfileImage);
             landImage = itemView.findViewById(R.id.landImage);
+            itemShow_data = itemView.findViewById(R.id.itemShow_data);
 
         }
     }

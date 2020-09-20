@@ -53,7 +53,6 @@ public class SellerFragment extends Fragment {
     String LAND_STRING_DATA, HOUSE_STRING_DATA, FLAT_STRING_DATA, HUS_LND_STRING_DATA, currentUserID;
     FirebaseAuth auth;
     MyLandPostAdapter landPostAdapter;
-
     MyFlatAdapter myFlatAdapter;
     MyHouseAdapter myHouseAdapter;
     public static ArrayList<Landrnt> arrayList;
@@ -62,7 +61,7 @@ public class SellerFragment extends Fragment {
     MyHusLndAdpater myHusLndAdpater;
     public static ArrayList<HuslndModelFront> huslndModelFronts;
     RecyclerView myLandList, myHouseList, MyFlatList, myHouseLandList;
-    TextView Total_post_show;
+    TextView Total_post_show,activeID,inactiveId;
 
 
     int count1;
@@ -80,6 +79,8 @@ public class SellerFragment extends Fragment {
         saler_Flt_Atn_btn = view.findViewById(R.id.saler_Flt_Atn_btn);
 
         Total_post_show=view.findViewById(R.id.Total_post_show);
+        activeID=view.findViewById(R.id.activeID);
+        inactiveId=view.findViewById(R.id.inactiveId);
 
         myHouseList = view.findViewById(R.id.myHouseList);
         MyFlatList = view.findViewById(R.id.MyFlatList);
@@ -159,6 +160,7 @@ public class SellerFragment extends Fragment {
                         object.getString("houlan_qunty"),
                         object.getString("houLnd_Price"),
                         object.getString("house_floor"),
+                        object.getString("active_inactive"),
                         object.getString("image"),
                         object.getString("husLnd_image")
                 ));
@@ -410,6 +412,62 @@ public class SellerFragment extends Fragment {
         super.onStart();
 
         totalPostLoad();
+        activepostload();
+        inactivepostload();
+
+    }
+
+    private void inactivepostload()
+    {
+
+        StringRequest request=new StringRequest(Request.Method.GET, " https://famousdb.000webhostapp.com/inactivepost.php?firebase_id="+currentUserID, new Response.Listener<String>() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onResponse(String response)
+            {
+
+                inactiveId.setText("Inactive Post: "+response);
+
+            }
+        }, new Response.ErrorListener()
+        {
+            @Override
+            public void onErrorResponse(VolleyError error)
+            {
+
+
+                Toast.makeText(getContext(), error.getMessage().toString()+"", Toast.LENGTH_SHORT).show();
+            }
+        });
+        MySingleton.getInstance(getContext()).addToRequestQueue(request);
+
+    }
+
+    private void activepostload() {
+
+
+        StringRequest request=new StringRequest(Request.Method.GET, "https://famousdb.000webhostapp.com/activieCount.php?firebase_id="+currentUserID, new Response.Listener<String>() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onResponse(String response)
+            {
+
+                activeID.setText("Active Post: "+response);
+
+            }
+        }, new Response.ErrorListener()
+        {
+            @Override
+            public void onErrorResponse(VolleyError error)
+            {
+
+
+                Toast.makeText(getContext(), error.getMessage().toString()+"", Toast.LENGTH_SHORT).show();
+            }
+        });
+        MySingleton.getInstance(getContext()).addToRequestQueue(request);
+
+
 
     }
 

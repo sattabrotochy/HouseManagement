@@ -71,16 +71,16 @@ public class MyFlatAdapter extends RecyclerView.Adapter<MyFlatAdapter.MyView> {
 
         final FlatMoreDetls moreDetls=new FlatMoreDetls();
 
-        if (model.getActive_Inactive().equals(" Your post is active")) {
+        if (model.getActive_Inactive().equals("active")) {
             holder.act_chk.setVisibility(View.VISIBLE);
-        } else if (model.getActive_Inactive().equals(" Your post is Inactive ")) {
+        } else if (model.getActive_Inactive().equals("Inactive ")) {
             holder.intcv_chk.setVisibility(View.VISIBLE);
         }
         else {
             holder.intcv_chk.setVisibility(View.VISIBLE);
         }
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemShow_data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
@@ -164,7 +164,7 @@ public class MyFlatAdapter extends RecyclerView.Adapter<MyFlatAdapter.MyView> {
         TextView Flat_houseUserName, Flat_houseUserLocation, Flat_houseUserRoom, Flat_houseUserPrice, Flat_houseUserFloor, showAllData,act_intc_chk,act_chk,intcv_chk;
 
         CircleImageView ActiveProfileImage;
-        ImageView landImage;
+        ImageView landImage,itemShow_data;
 
         public MyView(@NonNull View itemView) {
             super(itemView);
@@ -180,6 +180,7 @@ public class MyFlatAdapter extends RecyclerView.Adapter<MyFlatAdapter.MyView> {
             intcv_chk = itemView.findViewById(R.id.intcv_chk);
             ActiveProfileImage = itemView.findViewById(R.id.ActiveProfileImage);
             landImage = itemView.findViewById(R.id.landImage);
+            itemShow_data = itemView.findViewById(R.id.itemShow_data);
         }
     }
 }

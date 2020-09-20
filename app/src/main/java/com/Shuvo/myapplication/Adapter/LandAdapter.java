@@ -56,7 +56,7 @@ public class LandAdapter extends RecyclerView.Adapter<LandAdapter.MyView> {
         Picasso.get().load(model.getImage()).into(holder.land_user_image);
         Picasso.get().load(model.getLandimage()).into(holder.landImage1);
 
-        if (model.getActive_ckeck().equals(" Your post is active"))
+        if (model.getActive_ckeck().equals("active"))
         {
             holder.showAll_dataFlt.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -73,7 +73,13 @@ public class LandAdapter extends RecyclerView.Adapter<LandAdapter.MyView> {
         }
         else
         {
-            Toast.makeText(context, "This post is inactive", Toast.LENGTH_SHORT).show();
+            holder.showAll_dataFlt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(context, "This post is inactive", Toast.LENGTH_SHORT).show();
+                }
+            });
+
         }
 
 

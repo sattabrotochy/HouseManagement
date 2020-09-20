@@ -1,5 +1,6 @@
 package com.Shuvo.myapplication;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
@@ -73,10 +75,35 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
 
-        Animatoo.animateSlideRight(this);
-        finish();
+       AlertDialog.Builder builder=new AlertDialog.Builder(this);
+       builder.setMessage("Are you sure You want to exit");
+       builder.setCancelable(false);
+       builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+           @Override
+           public void onClick(DialogInterface dialogInterface, int i)
+           {
+             
+               finish();
+
+           }
+       });
+       builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+           @Override
+           public void onClick(DialogInterface dialogInterface, int i)
+           {
+               Toast.makeText(MainActivity.this, "", Toast.LENGTH_SHORT).show();
+
+
+           }
+       });
+       AlertDialog alertDialog=builder.create();
+       alertDialog.show();
+
+//        super.onBackPressed();
+//
+//
+//        finish();
 
 
     }

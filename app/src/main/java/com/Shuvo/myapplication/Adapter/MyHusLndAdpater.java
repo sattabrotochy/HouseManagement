@@ -67,7 +67,19 @@ public class MyHusLndAdpater extends RecyclerView.Adapter<MyHusLndAdpater.MyView
         Picasso.get().load(modelFront.getImage()).into(holder.ActiveProfileImage);
         Picasso.get().load(modelFront.getHusLnd_image()).into(holder.landImage);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        if (modelFront.getActive_inactive().equals("active"))
+        {
+
+            holder.act_chk.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            holder.intcv_chk.setVisibility(View.VISIBLE);
+        }
+
+
+
+        holder.itemShow_data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
@@ -150,7 +162,8 @@ public class MyHusLndAdpater extends RecyclerView.Adapter<MyHusLndAdpater.MyView
         TextView Flat_houseUserName, Flat_houseUserLocation, Flat_houseUserRoom, Flat_houseUserPrice, Flat_houseUserFloor, showAllData;
 
         CircleImageView ActiveProfileImage;
-        ImageView landImage;
+        TextView act_chk,intcv_chk;
+        ImageView landImage,itemShow_data;
 
         public MyView(@NonNull View itemView) {
             super(itemView);
@@ -164,6 +177,13 @@ public class MyHusLndAdpater extends RecyclerView.Adapter<MyHusLndAdpater.MyView
             showAllData = itemView.findViewById(R.id.showAllData);
             ActiveProfileImage = itemView.findViewById(R.id.ActiveProfileImage);
             landImage = itemView.findViewById(R.id.landImage);
+            itemShow_data = itemView.findViewById(R.id.itemShow_data);
+
+
+            act_chk = itemView.findViewById(R.id.act_chk);
+            intcv_chk = itemView.findViewById(R.id.intcv_chk);
+
+
 
         }
     }

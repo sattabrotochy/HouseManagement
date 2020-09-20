@@ -3,9 +3,12 @@ package com.Shuvo.myapplication.Authentication;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,9 +34,10 @@ public class SIngInActivity extends AppCompatActivity {
     String url = "https://famousdb.000webhostapp.com/currentUserId.php";
     String url2;
     Button singInBtn;
-    String uEmail, uPassword, currentUserID;
+    String uEmail, uPassword, currentUserID,CheckBox;
     EditText UserEmail, UserPass;
     FirebaseAuth mAuth;
+    CheckBox remember_me;
     private ProgressDialog progressDialog;
 
     @Override
@@ -47,6 +51,7 @@ public class SIngInActivity extends AppCompatActivity {
         singInBtn = findViewById(R.id.singInBtn);
         UserEmail = findViewById(R.id.UserEmail);
         UserPass = findViewById(R.id.UserPass);
+        remember_me = findViewById(R.id.remember_me);
         mAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);
 
@@ -61,6 +66,30 @@ public class SIngInActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 gotoMainActivity();
+            }
+        });
+
+
+        remember_me.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b)
+            {
+                if (remember_me.isChecked())
+                {
+                    SharedPreferences sharedPreferences=getSharedPreferences("CheckBox",MODE_PRIVATE);
+                    SharedPreferences.Editor editor=sharedPreferences.edit();
+                    editor.putString("remember","true");
+                    editor.apply();
+
+                }
+                else if (!remember_me.isChecked())
+                {
+                    SharedPreferences sharedPreferences=getSharedPreferences("CheckBox",MODE_PRIVATE);
+                    SharedPreferences.Editor editor=sharedPreferences.edit();
+                    editor.putString("remember","false");
+                    editor.apply();
+                }
+
             }
         });
     }
@@ -98,8 +127,25 @@ public class SIngInActivity extends AppCompatActivity {
                         Toast.makeText(context, "Successful", Toast.LENGTH_SHORT).show();
 
                         currentUserID = mAuth.getCurrentUser().getUid();
+
+                        SharedPreferences sharedPreferences=getSharedPreferences("CheckBox",MODE_PRIVATE);
+                        CheckBox=sharedPreferences.getString("remember","");
+//                        if (CheckBox.equals("true"))
+//                        {
+//                            Intent intent = new Intent(context, MainActivity.class);
+//                            startActivity(intent);
+//                            finish();
+//                        }
+//                            else if (CheckBox.equals("false"))
+//                        {
+//                            Intent intent = new Intent(context, MainActivity.class);
+//                            startActivity(intent);
+//                            finish();
+//                        }
                         Intent intent = new Intent(context, MainActivity.class);
                         startActivity(intent);
+                        finish();
+
                         Animatoo.animateSlideLeft(context);
                     } else {
                         Toast.makeText(context, task.getException().getMessage().toString(), Toast.LENGTH_SHORT).show();

@@ -50,7 +50,7 @@ public class LandRentFragment extends Fragment {
     RadioGroup radioGroupAdvanceMoney;
     String advanceMoneyYesNo,number, land_qty, land_rnt, per_qty_rnt, monthlyPaymentLandType, minimumTimeSpendLandType, advanceFeeType, currentUserID, address;
     Button submitLandPost;
-    String activeInactivesystem, name,Imageurl;
+    String activeInactivesystem,activeInactivesystem1, name,Imageurl;
     CheckBox land_check_Box;
     FirebaseAuth mAuth;
     ProgressDialog progressDialog;
@@ -164,11 +164,12 @@ public class LandRentFragment extends Fragment {
         if (land_rnt.isEmpty() || land_qty.isEmpty() || per_qty_rnt.isEmpty() || monthlyPaymentLandType.isEmpty() ||
                 minimumTimeSpendLandType.isEmpty() || advanceFeeType.isEmpty()) {
 
-            activeInactivesystem = " Your post is Inactive ";
+            activeInactivesystem = "inactive ";
             landpostSave();
             Toast.makeText(getContext(), activeInactivesystem, Toast.LENGTH_SHORT).show();
-        } else {
-            activeInactivesystem = " Your post is active";
+        }
+        else {
+            activeInactivesystem1 = "active";
             landpostSave();
 
             Toast.makeText(getContext(), activeInactivesystem, Toast.LENGTH_SHORT).show();
@@ -200,6 +201,7 @@ public class LandRentFragment extends Fragment {
         ) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
+                String image=" ";
                 Map<String, String> params = new HashMap<String, String>();
                 Log.d(TAG, "getParams: " + currentUserID);
                 params.put("firebase_id", currentUserID);
@@ -212,9 +214,18 @@ public class LandRentFragment extends Fragment {
                 params.put("mini_leave_date", "সর্বনিম্ন" + minimumTimeSpendLandType + "দিন থাকার পর জমি ছাড়তে পারবে");
                 params.put("per_qty_price", "প্রতি একক জমির ভাড়া" + per_qty_rnt+"টাকা");
                 params.put("mini_adv_date", "সর্বনিম্ন " + advanceFeeType + "মাসের অগ্রিম ভাড়া দিতে হবে");
-                params.put("active_ckeck", activeInactivesystem);
+
+                if (activeInactivesystem!=null)
+                {
+                    params.put("active_ckeck", activeInactivesystem);
+                }
+                else
+                {
+                    params.put("inactive_ckeck", activeInactivesystem1);
+                }
+
                 params.put("image", Imageurl);
-                params.put("$landimage", " ");
+                params.put("landimage", image);
                 return params;
             }
         };

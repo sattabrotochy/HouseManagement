@@ -65,7 +65,7 @@ public class HouseRentFragment extends Fragment implements AdapterView.OnItemSel
     ImageView Back_To_Home;
     ImageView HouseRentImageType, HouseRentImageType1, HouseRentImageType2, HouseRentImageType3;
 
-    String name="", location="", floorNumberHouse = "", housePrice="", houseRoom="", houseBathRoom="", gasBil="",Imageurl;
+    String name="", location="", floorNumberHouse = "", housePrice="", houseRoom="", houseBathRoom="", gasBil="",Imageurl,activeSystem,inactiveSystem;
     Button houseRentPost;
     Uri videoUri;
 
@@ -349,6 +349,22 @@ public class HouseRentFragment extends Fragment implements AdapterView.OnItemSel
 
         houseType2 = houseType;
 
+        if (location.equals("")|| housePrice.equals("") || houseRoom.equals("")|| houseBathRoom.equals("") )
+        {
+
+            inactiveSystem="inactive ";
+            dataSave();
+        }
+        else
+        {
+            activeSystem ="active";
+            dataSave();
+        }
+
+
+    }
+
+    private void dataSave() {
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://famousdb.000webhostapp.com/house.php", new Response.Listener<String>() {
             @Override
@@ -371,13 +387,14 @@ public class HouseRentFragment extends Fragment implements AdapterView.OnItemSel
         }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
+                String image =" ";
                 Map<String, String> data = new HashMap<String, String>();
                 data.put("firebase_id", currentUserID);
                 data.put("name", name);
                 data.put("phn_number", number);
                 data.put("location", "বাসার ঠিকানা :" + location);
-                data.put("house_type", houseType2+"নম্বর তলাটি ভাড়া দেওয়া হবে");
-                data.put("house_floor", floorNumberHouse);
+                data.put("house_type", houseType2);
+                data.put("house_floor", floorNumberHouse+"নম্বর তলাটি ভাড়া দেওয়া হবে");
                 data.put("house_rnt_type", rentItemType+ " জন্য বাসা ভাড়া দেওয়া হবে");
                 data.put("house_rnt_price", "বাসা ভাড়াটা "+housePrice+ "টাকা");
                 data.put("house_room", houseRoom+"টি রুম");
@@ -389,8 +406,15 @@ public class HouseRentFragment extends Fragment implements AdapterView.OnItemSel
                 data.put("house_parking", parking);
                 data.put("house_lift", lift);
                 data.put("image", Imageurl);
-                data.put("house_image", " ");
-
+                data.put("house_image", image);
+                if (activeSystem!=null)
+                {
+                    data.put("active_ckeck", activeSystem);
+                }
+                else
+                {
+                    data.put("inactive_ckeck_hus", inactiveSystem);
+                }
 
                 return data;
 
@@ -398,6 +422,7 @@ public class HouseRentFragment extends Fragment implements AdapterView.OnItemSel
         };
 
         MySingleton.getInstance(getContext()).addToRequestQueue(stringRequest);
+
 
     }
 

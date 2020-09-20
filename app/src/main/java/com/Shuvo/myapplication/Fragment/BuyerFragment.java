@@ -180,6 +180,7 @@ public class BuyerFragment extends Fragment {
                         object.getString("houlan_qunty"),
                         object.getString("houLnd_Price"),
                         object.getString("house_floor"),
+                        object.getString("active_inactive"),
                         object.getString("image"),
                         object.getString("husLnd_image")
                 ));

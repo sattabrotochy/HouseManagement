@@ -57,7 +57,7 @@ public class FlatAdapter extends RecyclerView.Adapter<FlatAdapter.ViewHolder> {
 
 
 
-        if (model.getActive_Inactive().equals(" Your post is active"))
+        if (model.getActive_Inactive().equals("active"))
         {
             holder.showAllData.setOnClickListener(new View.OnClickListener() {
                 @Override
