@@ -32,7 +32,7 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.ViewHolder> 
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.all_post_list_item, parent, false);
+        View v = LayoutInflater.from(context).inflate(R.layout.front_house_new, parent, false);
         return new ViewHolder(v);
     }
 
@@ -44,8 +44,8 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.ViewHolder> 
         holder.houseUserName.setText(model.getName());
         holder.houseUserLocation.setText(model.getLocation());
         holder.houseUserPrice.setText(model.getHouse_rnt_price());
-        holder.houseUserFloor.setText(model.getHouse_floor());
-        holder.houseUserRoom.setText(model.getHouse_room());
+      //  holder.houseUserFloor.setText(model.getHouse_floor());
+       // holder.houseUserRoom.setText(model.getHouse_room());
         Picasso.get().load(model.getImage()).into(holder.houseImage_user);
         Picasso.get().load(model.getHouse_image()).into(holder.image_house);
 

@@ -49,7 +49,7 @@ public class MyHusLndAdpater extends RecyclerView.Adapter<MyHusLndAdpater.MyView
     @Override
     public MyView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(context).inflate(R.layout.active_inactive_post_layout_item, parent, false);
+        View v = LayoutInflater.from(context).inflate(R.layout.my_front_layout_new, parent, false);
         return new MyView(v);
     }
 
@@ -61,9 +61,9 @@ public class MyHusLndAdpater extends RecyclerView.Adapter<MyHusLndAdpater.MyView
         final int id = modelFront.getId();
         holder.Flat_houseUserName.setText(modelFront.getName());
         holder.Flat_houseUserLocation.setText(modelFront.getAddress());
-        holder.Flat_houseUserRoom.setText(modelFront.getHoulan_qunty());
+       // holder.Flat_houseUserRoom.setText(modelFront.getHoulan_qunty());
         holder.Flat_houseUserPrice.setText(modelFront.getHouLnd_Price());
-        holder.Flat_houseUserFloor.setText(modelFront.getHouse_floor());
+       // holder.Flat_houseUserFloor.setText(modelFront.getHouse_floor());
         Picasso.get().load(modelFront.getImage()).into(holder.ActiveProfileImage);
         Picasso.get().load(modelFront.getHusLnd_image()).into(holder.landImage);
 
@@ -163,7 +163,8 @@ public class MyHusLndAdpater extends RecyclerView.Adapter<MyHusLndAdpater.MyView
 
         CircleImageView ActiveProfileImage;
         TextView act_chk,intcv_chk;
-        ImageView landImage,itemShow_data;
+        ImageView landImage;
+        TextView itemShow_data;
 
         public MyView(@NonNull View itemView) {
             super(itemView);
@@ -180,8 +181,8 @@ public class MyHusLndAdpater extends RecyclerView.Adapter<MyHusLndAdpater.MyView
             itemShow_data = itemView.findViewById(R.id.itemShow_data);
 
 
-            act_chk = itemView.findViewById(R.id.act_chk);
-            intcv_chk = itemView.findViewById(R.id.intcv_chk);
+            act_chk = itemView.findViewById(R.id.act_chk1);
+            intcv_chk = itemView.findViewById(R.id.intcv_chk1);
 
 
 

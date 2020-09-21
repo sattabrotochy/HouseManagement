@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -46,9 +48,10 @@ public class EditHouseActivity extends AppCompatActivity {
     TextView Hus_userName1;
     EditText hus_number, hus_userPrice, hus_userFloor, hus_userRoom, hus_userBathRoom;
     Button hus_post_update_Btn,hus_image_update_Btn;
-    String url,url3;
+    String url,url3,active_inactive;
     ProgressDialog progressDialog;
     ImageView image_house;
+    CheckBox hus_active,hus_inactive;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +66,8 @@ public class EditHouseActivity extends AppCompatActivity {
         progressDialog=new ProgressDialog(this);
 
         house_image = findViewById(R.id.house_image);
+        hus_active = findViewById(R.id.hus_active);
+        hus_inactive = findViewById(R.id.hus_inactive);
 
         Hus_userName1 = findViewById(R.id.Hus_userName1);
         hus_number = findViewById(R.id.hus_number);
@@ -75,6 +80,29 @@ public class EditHouseActivity extends AppCompatActivity {
         image_house = findViewById(R.id.image_house);
 
 
+        hus_active.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b)
+            {
+                if (hus_active.isChecked())
+                {
+                    active_inactive="active";
+                }
+
+            }
+        });
+
+        hus_inactive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b)
+            {
+                if (hus_inactive.isChecked())
+                {
+                    active_inactive="inactive";
+                }
+
+            }
+        });
 
         hus_post_update_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,6 +176,7 @@ public class EditHouseActivity extends AppCompatActivity {
                 data.put("house_room",house_room);
                 data.put("house_bathrm",house_bathrm);
                 data.put("house_image",url3);
+                data.put("active_ckeck",active_inactive);
 
                 return data;
 

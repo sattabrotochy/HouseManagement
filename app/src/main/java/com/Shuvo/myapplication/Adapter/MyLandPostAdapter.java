@@ -55,7 +55,7 @@ public class MyLandPostAdapter extends RecyclerView.Adapter<MyLandPostAdapter.My
     @Override
     public MyView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.active_inactive_post_layout_item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.my_front_layout_new, parent, false);
         return new MyView(view);
     }
 
@@ -66,10 +66,10 @@ public class MyLandPostAdapter extends RecyclerView.Adapter<MyLandPostAdapter.My
         Landrnt model = landPostList.get(position);
 
         final Integer id = model.getId();
-        holder.land_qunty.setText(model.getLand_qty());
+      //  holder.land_qunty.setText(model.getLand_qty());
         holder.name.setText(model.getName());
         holder.address.setText(model.getAddress());
-        holder.per_qty_price.setText(model.getPer_qty_price());
+      //  holder.per_qty_price.setText(model.getPer_qty_price());
         holder.land_price.setText(model.getLand_price());
 
         Picasso.get().load(model.getImage()).into(holder.userActiveProfileImage);
@@ -171,7 +171,8 @@ public class MyLandPostAdapter extends RecyclerView.Adapter<MyLandPostAdapter.My
         TextView name, address, land_qunty, land_price, per_qty_price, act_intc_chk,act_chk,intcv_chk;
 
         CircleImageView userActiveProfileImage;
-        ImageView landImage,itemShow_data;
+        ImageView landImage;
+        TextView itemShow_data;
 
         public MyView(@NonNull View itemView) {
             super(itemView);
@@ -182,8 +183,8 @@ public class MyLandPostAdapter extends RecyclerView.Adapter<MyLandPostAdapter.My
             land_price = itemView.findViewById(R.id.land_price);
             per_qty_price = itemView.findViewById(R.id.per_qty_price);
             act_intc_chk = itemView.findViewById(R.id.act_intc_chk);
-            act_chk = itemView.findViewById(R.id.act_chk);
-            intcv_chk = itemView.findViewById(R.id.intcv_chk);
+            act_chk = itemView.findViewById(R.id.act_chk1);
+            intcv_chk = itemView.findViewById(R.id.intcv_chk1);
             userActiveProfileImage = itemView.findViewById(R.id.ActiveProfileImage);
             landImage = itemView.findViewById(R.id.landImage);
             itemShow_data = itemView.findViewById(R.id.itemShow_data);

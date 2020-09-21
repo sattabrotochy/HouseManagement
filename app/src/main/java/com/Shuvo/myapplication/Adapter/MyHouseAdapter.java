@@ -49,7 +49,7 @@ public class MyHouseAdapter extends RecyclerView.Adapter<MyHouseAdapter.MYView> 
     @Override
     public MYView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.active_inactive_post_layout_item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.my_front_layout_new, parent, false);
 
         return new MYView(view);
     }
@@ -63,8 +63,8 @@ public class MyHouseAdapter extends RecyclerView.Adapter<MyHouseAdapter.MYView> 
         holder.houseUserName.setText(model.getName());
         holder.houseUserLocation.setText(model.getLocation());
         holder.houseUserPrice.setText(model.getHouse_rnt_price());
-        holder.houseUserFloor.setText(model.getHouse_floor());
-        holder.houseUserRoom.setText(model.getHouse_room());
+      //  holder.houseUserFloor.setText(model.getHouse_floor());
+       // holder.houseUserRoom.setText(model.getHouse_room());
         Picasso.get().load(model.getImage()).into(holder.ActiveProfileImage);
         Picasso.get().load(model.getHouse_image()).into(holder.landImage);
 
@@ -150,7 +150,8 @@ public class MyHouseAdapter extends RecyclerView.Adapter<MyHouseAdapter.MYView> 
 
         TextView houseUserName, houseUserLocation, houseUserRoom, houseUserPrice, houseUserFloor;
         CircleImageView ActiveProfileImage;
-        ImageView landImage,itemShow_data;
+        ImageView landImage;
+        TextView itemShow_data,act_chk1,intcv_chk1;
 
         public MYView(@NonNull View itemView) {
             super(itemView);
@@ -163,6 +164,8 @@ public class MyHouseAdapter extends RecyclerView.Adapter<MyHouseAdapter.MYView> 
             ActiveProfileImage = itemView.findViewById(R.id.ActiveProfileImage);
             landImage = itemView.findViewById(R.id.landImage);
             itemShow_data = itemView.findViewById(R.id.itemShow_data);
+            act_chk1 = itemView.findViewById(R.id.act_chk1);
+            intcv_chk1 = itemView.findViewById(R.id.intcv_chk1);
         }
     }
 }

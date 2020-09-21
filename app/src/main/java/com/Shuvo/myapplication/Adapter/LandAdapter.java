@@ -36,7 +36,7 @@ public class LandAdapter extends RecyclerView.Adapter<LandAdapter.MyView> {
     @NonNull
     @Override
     public MyView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.land_item_post, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.front_land_layout, parent, false);
         return new MyView(view);
     }
 
@@ -50,8 +50,8 @@ public class LandAdapter extends RecyclerView.Adapter<LandAdapter.MyView> {
         final Integer id = model.getId();
         holder.land_houseUserName.setText(model.getName());
         holder.land_houseUserLocation.setText(model.getAddress());
-        holder.land_per_unit_price.setText(model.getPer_qty_price());
-        holder.land_quinty.setText(model.getLand_qty());
+        //holder.land_per_unit_price.setText(model.getPer_qty_price());
+       // holder.land_quinty.setText(model.getLand_qty());
         holder.land_Price.setText(model.getLand_price());
         Picasso.get().load(model.getImage()).into(holder.land_user_image);
         Picasso.get().load(model.getLandimage()).into(holder.landImage1);
@@ -102,9 +102,9 @@ public class LandAdapter extends RecyclerView.Adapter<LandAdapter.MyView> {
 
             land_houseUserName = itemView.findViewById(R.id.land_houseUserName);
             land_houseUserLocation = itemView.findViewById(R.id.land_houseUserLocation);
-            land_quinty = itemView.findViewById(R.id.land_quinty);
+          //  land_quinty = itemView.findViewById(R.id.land_quinty);
             land_Price = itemView.findViewById(R.id.land_Price);
-            land_per_unit_price = itemView.findViewById(R.id.land_per_unit_price);
+            //land_per_unit_price = itemView.findViewById(R.id.land_per_unit_price);
             showAll_dataFlt = itemView.findViewById(R.id.showAll_dataFlt);
             land_user_image = itemView.findViewById(R.id.land_user_image);
             landImage1 = itemView.findViewById(R.id.landImage1);

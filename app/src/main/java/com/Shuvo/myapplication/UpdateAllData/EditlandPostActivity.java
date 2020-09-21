@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -60,7 +62,9 @@ public class EditlandPostActivity extends AppCompatActivity {
     CircleImageView landEd_userImage;
     ProgressDialog progressbar2;
     ImageView postImage;
-    String url,url2,url3;
+    String url,url2,url3,active_inactive;
+    CheckBox activeCheck,inactiveCheck;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +87,8 @@ public class EditlandPostActivity extends AppCompatActivity {
         progressbar2.setMessage("please Wait..........");
         progressbar2.setCanceledOnTouchOutside(false);
 
+        activeCheck=findViewById(R.id.land_activeCheck);
+        inactiveCheck=findViewById(R.id.land_inactiveCheck);
 
         Land_userName = findViewById(R.id.Land_userName1);
         landEd_userImage = findViewById(R.id.landEd_userImage);
@@ -97,6 +103,34 @@ public class EditlandPostActivity extends AppCompatActivity {
         land_post_update_Btn = findViewById(R.id.land_post_update_Btn);
         land_Image_update_Btn = findViewById(R.id.land_Image_update_Btn);
 
+
+        activeCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b)
+            {
+                if (activeCheck.isChecked()){
+                    active_inactive="active";
+                    Toast.makeText(context, "post is active click update", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    inactiveCheck.setChecked(false);
+                }
+
+            }
+        });
+        inactiveCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (inactiveCheck.isChecked())
+                {
+                    active_inactive="inactive";
+                    Toast.makeText(context, "post is inactive click update", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    activeCheck.setChecked(false);
+                }
+            }
+        });
 
         url="https://famousdb.000webhostapp.com/LandImageUpload.php";
         final String imageName="landImage";
@@ -163,6 +197,7 @@ public class EditlandPostActivity extends AppCompatActivity {
                 params.put("mini_leave_date", mini_leave_date);
                 params.put("mini_adv_date", mini_adv_date);
                 params.put("landimage", url3);
+                params.put("active_ckeck",active_inactive);
 
 
                 return params;

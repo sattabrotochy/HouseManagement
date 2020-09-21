@@ -1,25 +1,32 @@
 package com.Shuvo.myapplication;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.Shuvo.myapplication.Adapter.ProfileAdapter;
+import com.Shuvo.myapplication.Authentication.SIngInActivity;
 import com.Shuvo.myapplication.Class.MySingleton;
 import com.Shuvo.myapplication.Class.ProfileModel;
+import com.Shuvo.myapplication.ShowActivity.HusLandMDActivity;
+import com.Shuvo.myapplication.UpdateAllData.EditHusLandActivity;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
@@ -72,7 +79,36 @@ public class Activity_user_edit_general_profile extends AppCompatActivity {
         change_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Activity_user_edit_general_profile.this,ImageUploadActivity.class));
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                ProgressDialog progressDialog = new ProgressDialog(view.getContext());
+                CharSequence[] dilofItem = {"Profile image upload", "LogOut"};
+                builder.setItems(dilofItem, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        switch (i) {
+                            case 0:
+                                startActivity(new Intent(Activity_user_edit_general_profile.this,ImageUploadActivity.class));
+                                Animatoo.animateSlideLeft(context);
+                                break;
+                            case 1:
+                                auth.signOut();
+                                startActivity(new Intent(Activity_user_edit_general_profile.this, SIngInActivity.class));
+                                Animatoo.animateSlideRight(context);
+                                break;
+
+                            default:
+                                break;
+                        }
+
+                    }
+                });
+
+                builder.create().show();
+
+
+
             }
         });
 

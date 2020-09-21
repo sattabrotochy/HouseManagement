@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:id="@+id/liner5"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/new_back"
+        android:orientation="horizontal"
+        tools:ignore="UselessLeaf,UselessParent">
+
+        <ImageView
+            android:id="@+id/land_image"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center_vertical"
+            tools:ignore="ContentDescription,MissingPrefix">
+
+        </ImageView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp">
+
+
+            <RelativeLayout
+                android:id="@+id/rey1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/new_back2">
+
+                <TextView
+                    android:id="@+id/Land_userName1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
+                    android:padding="5dp"
+                    android:text="user Name"
+                    android:textColor="#000"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/lanmageProd"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/dada">
+
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rec3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rey1"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/new_back3"
+                android:padding="5dp">
+
+
+                <RelativeLayout
+                    android:id="@+id/rec2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lan_loctin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="ঠিকানা: "
+                        android:textColor="#000"
+                        android:textSize="15sp"
+                        tools:ignore="HardcodedText">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/land_userAddress1"
+                        android:layout_width="170dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toRightOf="@id/lan_loctin"
+                        android:maxLines="1"
+                        android:text=" Sylhet,moulvibazar,dhaka,"
+                        android:textColor="#403535"
+                        android:textSize="13.5sp"
+                        tools:ignore="HardcodedText,NestedWeights,RtlCompat,RtlHardcoded">
+
+                    </TextView>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rec2">
+
+                    <TextView
+                        android:id="@+id/price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="10dp"
+                        android:maxLines="1"
+                        android:text="ভাড়া: "
+                        android:textColor="#000"
+                        android:textSize="15sp"
+                        tools:ignore="HardcodedText">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/land_userPrice1"
+                        android:layout_width="170dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toRightOf="@id/price"
+                        android:gravity="center"
+
+                        android:textAlignment="textStart"
+                        android:textColor="#2C2121"
+                        android:textSize="13.5sp"
+                        android:textStyle="normal"
+                        tools:ignore="HardcodedText,NestedWeights,RtlCompat,RtlHardcoded">
+
+                    </TextView>
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:background="@drawable/new_back2"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/rec3"
+                android:layout_marginEnd="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/land_phone"
+                    android:padding="5dp"
+                    android:textColor="#000"
+                    android:layout_centerVertical="true"
+                    android:textSize="17sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:ignore="RelativeOverlap">
+
+                </TextView>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/call_user"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_contact">
+
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:background="#fff"
+        android:layout_below="@id/liner5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:background="@drawable/new_back2"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="UselessLeaf">
+
+
+            <TextView
+                android:id="@+id/land_userqnty1"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:textColor="#000"
+                android:textSize="17sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            </TextView>
+
+
+            <TextView
+                android:id="@+id/land_user_per_Unit_price1"
+
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:textColor="#000"
+                android:textSize="17sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            </TextView>
+            //5
+            <TextView
+                android:id="@+id/land_userMontlyPayDate1"
+
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:textColor="#000"
+                android:textSize="17sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            </TextView>
+            //6
+            <TextView
+                android:id="@+id/land_userLevDate1"
+
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:textColor="#000"
+                android:textSize="17sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            </TextView>
+            //7
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/land_userAdnFee1"
+                android:padding="5dp"
+                android:textColor="#000"
+                android:textSize="17sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            </TextView>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

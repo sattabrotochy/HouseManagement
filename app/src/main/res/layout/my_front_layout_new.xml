@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/new_back"
+        android:orientation="horizontal"
+        tools:ignore="UselessLeaf,UselessParent">
+
+        <ImageView
+            android:id="@+id/landImage"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center_vertical"
+            tools:ignore="ContentDescription,MissingPrefix">
+
+        </ImageView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp">
+
+
+            <RelativeLayout
+                android:id="@+id/rey1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/new_back2">
+
+                <TextView
+                    android:id="@+id/landUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
+                    android:padding="5dp"
+                    android:text="user Name"
+                    android:textColor="#000"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ActiveProfileImage"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/dada">
+
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rec3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rey1"
+                android:padding="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/new_back3">
+
+
+                <RelativeLayout
+                    android:id="@+id/rec2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lan_loctin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="ঠিকানা: "
+                        android:textColor="#000"
+                        android:textSize="15sp"
+                        tools:ignore="HardcodedText">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/land_location"
+                        android:layout_width="170dp"
+                        android:layout_height="20dp"
+                        android:textColor="#403535"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toRightOf="@id/lan_loctin"
+                        android:maxLines="1"
+                        android:text=" Sylhet,moulvibazar,dhaka,"
+                        android:textSize="13.5sp"
+                        tools:ignore="HardcodedText,NestedWeights,RtlCompat,RtlHardcoded">
+
+                    </TextView>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rec2">
+
+                    <TextView
+                        android:id="@+id/price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="10dp"
+                        android:maxLines="1"
+                        android:text="ভাড়া: "
+                        android:textColor="#000"
+                        android:textSize="15sp"
+                        tools:ignore="HardcodedText">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/land_price"
+                        android:layout_width="170dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toRightOf="@id/price"
+                        android:gravity="center"
+                        android:textColor="#2C2121"
+                        android:text="Price"
+                        android:textAlignment="textStart"
+                        android:textSize="13.5sp"
+                        android:textStyle="normal"
+                        tools:ignore="HardcodedText,NestedWeights,RtlCompat,RtlHardcoded">
+
+                    </TextView>
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@id/rec3"
+                android:layout_alignParentEnd="true"
+                android:layout_width="80dp"
+                android:id="@+id/card1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="1dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_height="30dp">
+                <TextView
+                    android:background="#F3F2F2"
+                    android:id="@+id/itemShow_data"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="বিস্তারিত"
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,Suspicious0dp" />
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:visibility="gone"
+                android:layout_below="@id/rec3"
+                android:id="@+id/act_chk1"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/card1"
+                android:layout_width="10dp"
+                android:background="@drawable/online"
+                android:layout_height="10dp">
+
+            </TextView>
+            <TextView
+                android:visibility="gone"
+                android:layout_below="@id/rec3"
+                android:id="@+id/intcv_chk1"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_centerVertical="true"
+               android:layout_toStartOf="@id/card1"
+                android:layout_width="10dp"
+                android:background="@drawable/ofline"
+                android:layout_height="10dp">
+
+            </TextView>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

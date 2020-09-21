@@ -36,7 +36,7 @@ public class LandMDSwAdapter extends RecyclerView.Adapter<LandMDSwAdapter.MyView
     @NonNull
     @Override
     public MyView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.landmoredetails_show_item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.land_more_dtls_new, parent, false);
         return new MyView(view);
 
 

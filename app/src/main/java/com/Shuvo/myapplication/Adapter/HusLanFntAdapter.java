@@ -37,7 +37,7 @@ public class HusLanFntAdapter extends RecyclerView.Adapter<HusLanFntAdapter.MyVi
     @NonNull
     @Override
     public MyView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.flat_front_list_item, parent, false);
+        View v = LayoutInflater.from(context).inflate(R.layout.front_husland_layout_new, parent, false);
         return new MyView(v);
     }
 
@@ -49,9 +49,9 @@ public class HusLanFntAdapter extends RecyclerView.Adapter<HusLanFntAdapter.MyVi
        final int id=modelFront.getId();
         holder.Flat_houseUserName.setText(modelFront.getName());
         holder.Flat_houseUserLocation.setText(modelFront.getAddress());
-        holder.Flat_houseUserRoom.setText(modelFront.getHoulan_qunty());
+      //  holder.Flat_houseUserRoom.setText(modelFront.getHoulan_qunty());
         holder.Flat_houseUserPrice.setText(modelFront.getHouLnd_Price());
-        holder.Flat_houseUserFloor.setText(modelFront.getHouse_floor());
+     //   holder.Flat_houseUserFloor.setText(modelFront.getHouse_floor());
         Picasso.get().load(modelFront.getImage()).into(holder.profImage);
         Picasso.get().load(modelFront.getHusLnd_image()).into(holder.flat_image);
 

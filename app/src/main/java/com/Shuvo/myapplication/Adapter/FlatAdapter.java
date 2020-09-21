@@ -37,7 +37,7 @@ public class FlatAdapter extends RecyclerView.Adapter<FlatAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(context).inflate(R.layout.flat_front_list_item, parent, false);
+        View v = LayoutInflater.from(context).inflate(R.layout.front_flat_layout_new, parent, false);
         return new ViewHolder(v);
     }
 
@@ -49,9 +49,9 @@ public class FlatAdapter extends RecyclerView.Adapter<FlatAdapter.ViewHolder> {
         final Integer idd = model.getId();
         holder.Flat_houseUserName.setText(model.getName());
         holder.Flat_houseUserLocation.setText(model.getAddress());
-        holder.Flat_houseUserRoom.setText(model.getFlatBadRoom());
+       // holder.Flat_houseUserRoom.setText(model.getFlatBadRoom());
         holder.Flat_houseUserPrice.setText(model.getFlatPrice());
-        holder.Flat_houseUserFloor.setText(model.getFloorId());
+       // holder.Flat_houseUserFloor.setText(model.getFloorId());
         Picasso.get().load(model.getImage()).into(holder.profImage);
         Picasso.get().load(model.getFlat_image()).into(holder.flat_image);
 

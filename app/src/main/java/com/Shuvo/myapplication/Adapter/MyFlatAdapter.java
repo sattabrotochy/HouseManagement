@@ -50,7 +50,7 @@ public class MyFlatAdapter extends RecyclerView.Adapter<MyFlatAdapter.MyView> {
     @Override
     public MyView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(context).inflate(R.layout.active_inactive_post_layout_item, parent, false);
+        View v = LayoutInflater.from(context).inflate(R.layout.my_front_layout_new, parent, false);
         return new MyView(v);
     }
 
@@ -61,9 +61,9 @@ public class MyFlatAdapter extends RecyclerView.Adapter<MyFlatAdapter.MyView> {
         final Integer idd = model.getId();
         holder.Flat_houseUserName.setText(model.getName());
         holder.Flat_houseUserLocation.setText(model.getAddress());
-        holder.Flat_houseUserRoom.setText(model.getFlatBadRoom());
+        //holder.Flat_houseUserRoom.setText(model.getFlatBadRoom());
         holder.Flat_houseUserPrice.setText(model.getFlatPrice());
-        holder.Flat_houseUserFloor.setText(model.getFloorId());
+        //holder.Flat_houseUserFloor.setText(model.getFloorId());
         Picasso.get().load(model.getImage()).into(holder.ActiveProfileImage);
         Picasso.get().load(model.getFlat_image()).into(holder.landImage);
 
@@ -164,7 +164,8 @@ public class MyFlatAdapter extends RecyclerView.Adapter<MyFlatAdapter.MyView> {
         TextView Flat_houseUserName, Flat_houseUserLocation, Flat_houseUserRoom, Flat_houseUserPrice, Flat_houseUserFloor, showAllData,act_intc_chk,act_chk,intcv_chk;
 
         CircleImageView ActiveProfileImage;
-        ImageView landImage,itemShow_data;
+        ImageView landImage;
+        TextView itemShow_data;
 
         public MyView(@NonNull View itemView) {
             super(itemView);
@@ -176,8 +177,8 @@ public class MyFlatAdapter extends RecyclerView.Adapter<MyFlatAdapter.MyView> {
             Flat_houseUserPrice = itemView.findViewById(R.id.land_price);
             Flat_houseUserFloor = itemView.findViewById(R.id.per_qty_price);
             act_intc_chk = itemView.findViewById(R.id.act_intc_chk);
-            act_chk = itemView.findViewById(R.id.act_chk);
-            intcv_chk = itemView.findViewById(R.id.intcv_chk);
+            act_chk = itemView.findViewById(R.id.act_chk1);
+            intcv_chk = itemView.findViewById(R.id.intcv_chk1);
             ActiveProfileImage = itemView.findViewById(R.id.ActiveProfileImage);
             landImage = itemView.findViewById(R.id.landImage);
             itemShow_data = itemView.findViewById(R.id.itemShow_data);

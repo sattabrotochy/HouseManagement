@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -53,6 +55,8 @@ public class EditFlatActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     ImageView flat_postImage;
     private int id;
+    CheckBox flat_active,flat_inactive;
+    String active_inactive;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,12 +78,38 @@ public class EditFlatActivity extends AppCompatActivity {
         flat_phne_numberEdit = findViewById(R.id.flat_phne_numberEdit);
         flat_update_Btn = findViewById(R.id.flat_update_Btn);
         flat_image_Btn = findViewById(R.id.flat_image_Btn);
+        flat_active = findViewById(R.id.flat_active);
+        flat_inactive = findViewById(R.id.flat_inactive);
 
         flat_userImage = findViewById(R.id.flat_userImage);
 
         progressDialog = new ProgressDialog(this);
 
         dataEdit();
+
+        flat_active.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b)
+            {
+                if(flat_active.isChecked())
+                {
+                    active_inactive="active";
+                    Toast.makeText(EditFlatActivity.this, "post is active click update ", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+
+        flat_inactive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (flat_inactive.isChecked())
+                {
+                    active_inactive ="inactive";
+                }
+            }
+        });
+
 
         flat_update_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,6 +169,8 @@ public class EditFlatActivity extends AppCompatActivity {
                 data.put("floorId", floorId);
                 data.put("FlatPrice", FlatPrice);
                 data.put("flat_image", url3);
+                data.put("Active_Inactive",active_inactive);
+
                 return data;
 
             }

@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -47,9 +49,10 @@ public class EditHusLandActivity extends AppCompatActivity {
     CircleImageView hulannEd_iamge;
     FirebaseAuth auth;
     int id;
-    String url,url3;
+    String url,url3,active_inactive;
     ProgressDialog progressDialog;
     ImageView image_husLan;
+    CheckBox hus_lan_active,hus_lan_inactive;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +64,9 @@ public class EditHusLandActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         currentUserID = auth.getCurrentUser().getUid();
-
         progressDialog=new ProgressDialog(this);
+        
+        
         hus_Land_userName1 = findViewById(R.id.hus_Land_userName1);
         hus_land_userAddress = findViewById(R.id.hus_land_userAddress);
         hus_land_number = findViewById(R.id.hus_land_number);
@@ -70,7 +74,35 @@ public class EditHusLandActivity extends AppCompatActivity {
         hulannEd_iamge = findViewById(R.id.hulannEd_iamge);
         hus_land_image_update_Btn = findViewById(R.id.hus_land_image_update_Btn);
         image_husLan = findViewById(R.id.image_husLan);
+        hus_lan_active = findViewById(R.id.hus_lan_active);
+        hus_lan_inactive = findViewById(R.id.hus_lan_inactive);
 
+        hus_lan_active.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b)
+            {
+                if (hus_lan_active.isChecked())
+                {
+                    active_inactive="active";
+                    Toast.makeText(EditHusLandActivity.this, "post is active click update ", Toast.LENGTH_SHORT).show();
+
+                }
+                
+            }
+        });
+        hus_lan_inactive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b)
+            {
+                if (hus_lan_inactive.isChecked())
+                {
+                    active_inactive="inactive";
+                    Toast.makeText(EditHusLandActivity.this, "post is inactive click update", Toast.LENGTH_SHORT).show();
+                }
+                
+            }
+        });
+        
 
         dataLoad();
         url="https://famousdb.000webhostapp.com/huslndimageUpload.php";
@@ -129,6 +161,7 @@ public class EditHusLandActivity extends AppCompatActivity {
                 data.put("phn_number", phn_number);
                 data.put("houLnd_Price", houLnd_Price);
                 data.put("husLnd_image", url3);
+                data.put("active_ckeck", active_inactive);
                 return data;
 
             }

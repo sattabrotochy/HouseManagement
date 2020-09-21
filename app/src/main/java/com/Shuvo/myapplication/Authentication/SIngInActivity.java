@@ -92,6 +92,13 @@ public class SIngInActivity extends AppCompatActivity {
 
             }
         });
+
+        if (FirebaseAuth.getInstance().getCurrentUser()!=null){
+            startActivity(new Intent(SIngInActivity.this, MainActivity.class));
+            finish();
+            Animatoo.animateSlideLeft(context);
+        }
+
     }
 
     private void gotoMainActivity() {
@@ -155,6 +162,7 @@ public class SIngInActivity extends AppCompatActivity {
             });
 
         }
+
 
 
     }
